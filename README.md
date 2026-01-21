@@ -1,0 +1,3 @@
+Le Readme
+
+python -m streamlit run your_script.py

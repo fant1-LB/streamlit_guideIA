@@ -105,7 +105,184 @@ def lexique ():
                 technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
             </p>''')
     
+def usages():
+    from pathlib import Path
+    import streamlit as st
+    from utils.functions import image_path
+    tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
+    liste_images = [i for i in Path('images').iterdir()]
+    with tab1:
+        st.html('''    <section class="main">
+            <h2>1 - Description, indexation, classification et segmentation d'images</h2>
+            <p>Cette section décrira les usages possibles de technologies IA pour améliorer la connaissance scientifique
+                sur les collections. En préambule de cette section, il faut préciser que les technologies IA actuelles,
+                et dans un futur proche n'ont absolument pas vocation à remplacer les personnels scientifiques des
+                musées, ne serait-ce que parce que leur travail est absolument nécessaire pour entraîner, évaluer et
+                contrôler les systèmes IA.
+                En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou <i>finetuning </i> de modèles spécialisés
+                requiert l'aide de spécialistes
+                capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des
+                outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.</p>
+            <p>Cette section s'appuiera principalement sur les travaux menés dans le cadre des projets Torne-H, Hikaria,
+            VHS, Eida</a>, et des laboratoires d'archéologie AOrOc (UMR 8546) et Arscan (UMR 7041).
+            </p>
+            <p>Un usage efficace à mettre en place de l'IA observé dans ces travaux est d'abord la segmentation
+                d'éléments dans des vues numérisées. Ci-dessous un exemple réalisé à l'aide d'un modèle Yolo : </p>''')
+        st.image(image="https://cdn.prod.website-files.com/680a070c3b99253410dd3df5/684d85646cdaf7e5252b8497_67ed519cbf3f228c7bb790d7_67c99ff6c72a1cf68c554ff4_Segmentation_fig5.webp", caption="Des engins de chantiers segmentés à l'aide d'un modèle yolo")        
+          
+
+        st.html('''<p>La segmentation peut servir, sur des corpus sériels, à identifier les éléments représentés sur une
+                images. Dans le cadre du projet Torne-H, un modèle de segmentation a par exemple été entraîné afin de
+                déterminer quels types de meubles sont présents sur les dessins préparatoires de designers.
+                Elle peut aussi par exemple servir de pré-traitement pour travailler sur des images contenues dans des
+                ouvrages, ou dans d'autres images. On peut envisager ainsi de repérer les oeuvres dans des photographies
+                d'exposition, dans des catalogues d'exposition, ou encore des manuscrits, comme ça a été le cas pour les
+                projets EIDA et VHS. </p>
+            <p> Les principales familles de modèles de segmentation sont les modèles comme YOLO, ou DINO, qui associent une
+                "classe" à des parties de l'image, ou les modèles SAM, capables de découper les images en fonction des
+                traits et de caractéristiques visuelles.</p>
+
+            <p>Les modèles de classification vont, comme leur nom l'indique, associer une image à une "classe".
+                Contrairement aux modèles de segmentation, qui peuvent, pour certains associer des classes à une partie
+                de l'image, les modèles de classification associent une classe à l'intégralité de l'image.
+                Ce type de modèle sera particulièrement intéressant sur un nombre limité de classe. On peut par exemple
+                facilement envisager des traitements qui sépareraient les images sur un niveau de description "bas",
+                comme c'est le cas dans l'image ci-dessous, ou à l'aide de modèles spécialisés sur des corpus déjà
+                triés. C'est par exemple ce qui a pu être fait sur des motifs de tessons de poterie.
+                Il faut plus généralement retenir le principe que plus on demandera de classes différentes à un modèle,
+                moins il sera précis pour un entraînement équivalent.</p>
+            <figure>''')
+        
+        
+        st.image( image= image_path(liste_images, "classification3.png") , caption ="Représentation d'un modèle entraîné par Pierre Husson au service numérique de la recherche de l'INHA. Le modèle détermine si le tableau est un portrait, une nature morte, un paysage, les autres tableaux sont rassemblés sous le titre fourre-tout de 'scène'." )
+                
+                
+        st.html('''<p> La classification est utile pour catégoriser des images sur des corpus massifs mais relativement
+                homogènes. En l'état ces modèles ne sont pas fiables sur un trop grand nombre de classes, mais
+                fonctionnels sur un petit nombre. Comme la segmentation, les modèles de types Yolo ou Dino peuvent
+                réaliser des classifications. On peut également utiliser certains modèles de VLM/LLM, comme Florence, ou Qwen pour ces tâches, mais obtenir
+                des
+                sorties structurées et controlables de ces modèles demande un travail plus fin. </p>
+            <p>La description et l'indexation d'images sont deux objets problématiques loin d'être résolus au moment
+                d'écriture de ce guide. La description est envisageable avec des modèles type VLM, mais pose le problème
+                fondamental de la mesurabilité des résultats. L'indexation sur plusieurs niveaux à l'aide de thésaurus
+                complexes comme le thésaurus Garnier pose un problème différent, qui est l'inadaptation des modèles d'IA
+                contemporrains à ces plusieurs niveaux d'indexation.
+                On peut envisager un traitement par plusieurs modèles de classification pour imiter les différents
+                niveaux d'un thésaurus, mais il faut noter que la multiplication des traitements multiplie le nombre
+                d'erreurs, et chaque entraînement a un cout technique et écologique qui doit être pris en compte. Pour
+                ces deux usages, s'il ne faut pas exclure les traitement entièrement automatisés, sur des quantités
+                raisonnables d'images nous recommanderions plutôt d'avoir recours à l'IA pour appuyer le personnel
+                scientifique, dans le cadre de traitements semi automatiques.
+            </p>''')
+
+    with tab2: 
+        st.html('''
+                <h2 id="Début-du-guide">Les outils d'intelligence artificielle pour l'exploration de corpus</h2>
+                <p>Les outils d’intelligence artificielle peuvent permettre l’exploration de vastes corpus d’images. Ils
+                    présentent un intérêt majeur pour les collections de photographies, d’arts graphiques ou d’objets, en
+                    aidant à identifier des motifs similaires, à classer les œuvres selon différentes catégories et à
+                    décrire ou indexer les images plus efficacement.</p>
+                <p>Au cours des dernières années, dans le cadre de projets de recherche menés par des universités et des
+                    établissements publics, en France comme à l’étranger, de nombreuses institutions ont développé des
+                    logiciels dédiés à l’exploration et à la navigation au sein de très larges corpus d’images. Ces outils
+                    s’appuient sur les progrès récents en vision par ordinateur et en algorithmes de similarité, permettant
+                    notamment de regrouper les images d’un même corpus en fonction de leur contenu visuel ou de
+                    caractéristiques formelles (couleurs, textures, compositions, etc.).
+                </p>
+                <p>
+                    À condition de disposer d’un nombre suffisant d’images à étudier, les chercheur.euses et les
+                    institutions peuvent installer et utiliser aisément plusieurs logiciels gratuits et open source
+                    présentés ci-dessous : PixPlot, VIKUS Viewer, Panoptic.
+                </p>
+
+                <h3>De nouvelles manières de visualiser de vastes corpus d’images</h3>
+
+                <p>
+                    L’utilisation de logiciels comme PixPlot et VIKUS Viewer ouvre de nouvelles perspectives pour
+                    l’exploration et la compréhension de vastes corpus d’images.
+                </p>''')
+        
+        st.image(image=image_path(liste_images, "pixplot.png"), caption= "Visualisation globale de 11974 peintures italiennes du RETIF (INHA) grâce au logiciel PixPlot")
+        st.html('''<p>PixPlot est un logiciel open source, développé en 2017 par le Yale Digital Humanities Lab de
+                    l’université de Yale, dans le prolongement des travaux menés lors du projet Replica. Grâce à des
+                    algorithmes d’analyse des images, il permet de visualiser et d’explorer un corpus iconographique en
+                    disposant les images dans un espace en deux dimensions en fonction de leurs similarités visuelles.
+                </p>''')
+        st.image(image=image_path(liste_images, "VikusViewer.png"), caption="Visualisation de 986 dessins et peintures de Vincent van Gogh (1853–90) provenant du Van Gogh Museum à Amsterdam dans VIKUS Viewer")
+                
+        st.html('''        <p>
+                    Le logiciel VIKUS Viewer, développé par l’université de Potsdam, peut organiser les
+                    images dans un espace bidimensionnel selon des métadonnées écrites en dure, ou comme Pixplot, selon leur similarité visuelle. Son interface claire et soignée
+                    permet également de classer les images selon leur date de création, facilitant une lecture diachronique
+                    des corpus.
+                </p>
+
+                <h3>
+                    Faciliter l’annotation et la documentation des images
+                </h3>''')
+
+        st.image(image=image_path(liste_images, "panoptic.png"), caption='Interface de Panoptic')      
+                    
+                  
+
+        st.html('''        <p>
+                    Le logiciel Panoptic, développé par le CERES, est dédié à la visualisation et à l’annotation de grands
+                    corpus d’images. Il s’appuie sur différents algorithmes de similarité visuelle que l’utilisateur peut
+                    sélectionner, notamment CLIP et DINO. Ces technologies permettent à Panoptic de regrouper
+                    automatiquement des images similaires, d’effectuer des recherches en langage naturel par reconnaissance
+                    de contenu et de trier les images de manière efficace. L’un des principaux atouts de Panoptic réside
+                    dans sa capacité à associer des annotations et des étiquettes aux images, offrant ainsi un outil adapté
+                    aux besoins de documentation des collections.
+                </p>
+               ''')               
+                
+        
+    with tab3:
+        st.html(''' <h2>Reconnaissance et transcription de textes imprimés et manuscrits</h2>
+            <p>Cette section décrira les usages possibles de technologies IA pour automatiser la reconnaissance de
+            caractères dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten
+            Text Recognition) sont des technologies qui ont beaucoup évolués ces dernières années grâce aux progrès
+            de l'IA, et en particulier du deep learning. De
+            nombreux
+            outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans
+            des documents imprimés ou manuscrits, avec des niveaux de performance très élevés. </p>
+            <h3>Tour d'horizon rapide</h3>
+            <p>Ce sont des technologies plus anciennes et plus éprouvées que celles de vision par ordinateur ou d'IA
+            génératives et elles se séparent donc en deux grandes catégories : l'OCR et l'HTR.
+            Concernant l'HTR nous pouvons citer des outils comme Kraken
+            qui
+            offrent une solution complète de l'installation, aux premiers travaux de reconnaissances jusqu'au
+            ré-entrainement pour fine-tuning et l'export massif.</p>
+            <p>Ou bien des solutions commeTranskribus ou eScriptorium proposent des interfaces utilisateurs
+            et des
+            performances élevées.</p>
+            <p>Ensuite, pour l'OCR beaucoup d'outils existent mais nous mentionnons l'existence de deux projets
+            performants PeroOCR et Tesseract qui offrent des bons résultats complètement gratuitements</p>''')
+        st.image(image=image_path(liste_images, "HTR_Calfa_BnF.png"), caption="capture d'écran montrant un résultat d'HTR sur des textes arabes manuscrits")
+        st.html('''<h3>Mise en place</h3>
+            <p>La mise en place de ces technologies dépendra de vos besoins, de vos compétences techniques et de vos
+            ressources matérielles. Pour des besoins ponctuels ou des volumes limités, des solutions en ligne comme
+            Transkribus peuvent être suffisantes. Pour des besoins plus importants ou des exigences spécifiques,
+            l'installation locale de Kraken ou Tesseract peut être nécessaire.</p>
+            <p>Il est important de noter que la qualité des résultats dépendra fortement de la qualité des images
+            numérisées et de la spécificité des documents (langue, écriture, mise en page). Dans certains cas, un
+            ré-entrainement du modèle peut être nécessaire pour obtenir des résultats satisfaisants.</p>
+            <p>En terme d'infrastructures des <a href="/pages/lexique.html#GPU">GPU</a> risquent d'être nécessaires pour
+            les
+            larges corpus (au-delà de 1000 pages). Pour les moyens humains, il faut avoir en tête qu'avoir une
+            personne qui parle la langue, ou lit l'écriture du siècle en question est souvent indispensable pour le
+            réentrainement. Du côté technique, les applications ne sont pas excessivement compliquées et elles sont
+            bien documentées, mais leur manipulation requiert un minimum d'aisance avec l'informatique.</p>''')
+        st.image(image=image_path(liste_images, "OCR_Hugo_BnF.png"), caption="capture d'écran montrant un résultat d'un OCR sur un texte de Victor Hugo")
+
+            
+
+    
+    tab4.html("""<body> à voir </body>""")
+
 page_names_to_func = {"Accueil": accueil,
-                      "Lexique": lexique}
+                      "Lexique": lexique,
+                      "Usages de l'IA": usages}
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys())
 page_names_to_func[demo_name]()
