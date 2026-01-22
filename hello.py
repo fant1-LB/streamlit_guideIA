@@ -109,6 +109,7 @@ def usages():
     from pathlib import Path
     import streamlit as st
     from utils.functions import image_path
+    st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
     liste_images = [i for i in Path('images').iterdir()]
     with tab1:
@@ -281,8 +282,11 @@ def usages():
     
     tab4.html("""<body> à voir </body>""")
 
+def projets():
+    st.html("to be done")
 page_names_to_func = {"Accueil": accueil,
                       "Lexique": lexique,
-                      "Usages de l'IA": usages}
+                      "Usages de l'IA": usages,
+                      "Projets":projets,}
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys())
 page_names_to_func[demo_name]()
