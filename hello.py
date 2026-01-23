@@ -1,7 +1,11 @@
 import streamlit as st
+from pathlib import Path
+import streamlit as st
+
+from utils.functions import image_path
+
 
 def accueil():
-    import streamlit as st
     st.write("# Bienvenue sur notre guide consacré aux projets IA pour l'études des collections patrimoniales en France.")
     st.sidebar.success("Naviguez dans le guide.")
 
@@ -18,7 +22,6 @@ def accueil():
              ''')
 
 def lexique ():
-    import streamlit as st
     st.html ('''<h3 id="API">API</h3>
             <p>Une API, pour <i>application programming interface</i> ou « interface de programmation d'application »
                 est un interface qui permet de connecter un logiciel à une machine en ligne
@@ -106,9 +109,6 @@ def lexique ():
             </p>''')
     
 def usages():
-    from pathlib import Path
-    import streamlit as st
-    from utils.functions import image_path
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
     liste_images = [i for i in Path('images').iterdir()]
