@@ -104,8 +104,9 @@ def lexique ():
                 une plus grande quantité d’informations que si elles étaient fournies en langage naturel. Cette
                 technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
             </p>''')
-    
 def usages():
+    st.markdown("à voir, probablement un tableau?") 
+def capacites():
     from pathlib import Path
     import streamlit as st
     from utils.functions import image_path
@@ -124,9 +125,7 @@ def usages():
                 requiert l'aide de spécialistes
                 capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des
                 outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.</p>
-            <p>Cette section s'appuiera principalement sur les travaux menés dans le cadre des projets Torne-H, Hikaria,
-            VHS, Eida</a>, et des laboratoires d'archéologie AOrOc (UMR 8546) et Arscan (UMR 7041).
-            </p>
+            
             <p>Un usage efficace à mettre en place de l'IA observé dans ces travaux est d'abord la segmentation
                 d'éléments dans des vues numérisées. Ci-dessous un exemple réalisé à l'aide d'un modèle Yolo : </p>''')
         st.image(image="https://cdn.prod.website-files.com/680a070c3b99253410dd3df5/684d85646cdaf7e5252b8497_67ed519cbf3f228c7bb790d7_67c99ff6c72a1cf68c554ff4_Segmentation_fig5.webp", caption="Des engins de chantiers segmentés à l'aide d'un modèle yolo")        
@@ -241,41 +240,34 @@ def usages():
         
     with tab3:
         st.html(''' <h2>Reconnaissance et transcription de textes imprimés et manuscrits</h2>
-            <p>Cette section décrira les usages possibles de technologies IA pour automatiser la reconnaissance de
-            caractères dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten
+            <p>Cette section décrira les usages possibles de technologies IA pour transcrire automatiquement du texte dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten
             Text Recognition) sont des technologies qui ont beaucoup évolués ces dernières années grâce aux progrès
-            de l'IA, et en particulier du deep learning. De
-            nombreux
-            outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans
-            des documents imprimés ou manuscrits, avec des niveaux de performance très élevés. </p>
-            <h3>Tour d'horizon rapide</h3>
-            <p>Ce sont des technologies plus anciennes et plus éprouvées que celles de vision par ordinateur ou d'IA
-            génératives et elles se séparent donc en deux grandes catégories : l'OCR et l'HTR.
-            Concernant l'HTR nous pouvons citer des outils comme Kraken
-            qui
-            offrent une solution complète de l'installation, aux premiers travaux de reconnaissances jusqu'au
-            ré-entrainement pour fine-tuning et l'export massif.</p>
-            <p>Ou bien des solutions commeTranskribus ou eScriptorium proposent des interfaces utilisateurs
-            et des
-            performances élevées.</p>
-            <p>Ensuite, pour l'OCR beaucoup d'outils existent mais nous mentionnons l'existence de deux projets
-            performants PeroOCR et Tesseract qui offrent des bons résultats complètement gratuitements</p>''')
-        st.image(image=image_path(liste_images, "HTR_Calfa_BnF.png"), caption="capture d'écran montrant un résultat d'HTR sur des textes arabes manuscrits")
-        st.html('''<h3>Mise en place</h3>
-            <p>La mise en place de ces technologies dépendra de vos besoins, de vos compétences techniques et de vos
-            ressources matérielles. Pour des besoins ponctuels ou des volumes limités, des solutions en ligne comme
-            Transkribus peuvent être suffisantes. Pour des besoins plus importants ou des exigences spécifiques,
-            l'installation locale de Kraken ou Tesseract peut être nécessaire.</p>
-            <p>Il est important de noter que la qualité des résultats dépendra fortement de la qualité des images
-            numérisées et de la spécificité des documents (langue, écriture, mise en page). Dans certains cas, un
-            ré-entrainement du modèle peut être nécessaire pour obtenir des résultats satisfaisants.</p>
-            <p>En terme d'infrastructures des <a href="/pages/lexique.html#GPU">GPU</a> risquent d'être nécessaires pour
-            les
-            larges corpus (au-delà de 1000 pages). Pour les moyens humains, il faut avoir en tête qu'avoir une
-            personne qui parle la langue, ou lit l'écriture du siècle en question est souvent indispensable pour le
-            réentrainement. Du côté technique, les applications ne sont pas excessivement compliquées et elles sont
-            bien documentées, mais leur manipulation requiert un minimum d'aisance avec l'informatique.</p>''')
+            de l'IA, et en particulier du deep learning. De nombreux outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans des documents imprimés ou manuscrits, avec des niveaux de performance élevés. </p>
+            <h3>Tour d'horizon rapide</h3><p>Ce sont des technologies plus anciennes et plus éprouvées que celles de vision par ordinateur ou des Chatbots à base d'IA
+            génératives. Comme mentionné précédemment la transcription se sépare en deux grandes catégories : l'OCR et l'HTR. L'OCR se consacre à la reconnaissance de caractères imprimés, l'HTR à la reconnaissance de caractères manuscrits.</p>''')
         st.image(image=image_path(liste_images, "OCR_Hugo_BnF.png"), caption="capture d'écran montrant un résultat d'un OCR sur un texte de Victor Hugo")
+        
+        st.html('''<p> Du fait de la nature très répétitive, et de la relative persistance dans le temps des polices imprimées, les modèles d'OCR sont généralement applicables à un large éventail de documents.
+                Cet état de fait implique que l'usage de cette technologie se fait plus facilement à partir de solutions "clé en main" pré-existantes, déjà développées dans le cadre de projets de recherche précédents, ou pour le traitement de texte contemporain. Plus que la transcription même, la difficulté va résider dans la structuration des transcriptions si la mise en page du document est complexe. A l'inverse, l'HTR, du fait de la plus grande variabilié des écritures manuscrites, en particulier dans le temps, va généralement demander un travail de spécialisation des modèles, même si les VLMs les plus récents viennent remettre en cause ce paradigme.
+                Dans les deux cas, il faudra prévoir une vérité terrain, c'est à dire quelques documents représentatifs du corpus traité transcrits à la main, pour mesurer la fiabilité de l'instrument d'OCR ou d'HTR utilisé. La qualité d'une transcription est généralement mesurée à partir du CER (Character Error Rate), c'est à dire le pourcentage de caractères faux dans la transcription par rapport à la "vérité terrain", ou le WER (Word Error Rate), qui est de son côté le pourcentage de mots faux.
+                
+                <h3>Mise en place</h3>
+            
+                
+            <p>La mise en place de ces technologies dépendra de vos objectifs, de vos compétences techniques et de vos
+            ressources matérielles. Pour des besoins ponctuels ou des volumes limités, des solutions toutes faites en ligne peuvent être suffisantes. Pour des besoins plus importants ou des exigences spécifiques,
+            la mise en place de chaînes de traitement plus complètes ou personnalisées sera sans doute nécessaire. Comme toujours, il faut évaluer avant de se lancer dans le projet la pertinence du temps et des coûts engagés dans le projet par rapport à un travail manuel.</p>
+            <p>Il est important de noter que la qualité des résultats dépendra fortement de la qualité des images
+            numérisées et des spécificité des documents (langue, écriture, mise en page...).  </p>
+            <p>En terme d'infrastructures il faut prévoir de la puissance de calcul pour l'application sur
+            de larges corpus, et pour l'entraînement ou réentraînement de modèles spécialisés. Pour les moyens humains, une
+            personne qui parle la langue, et est capable de lire l'écriture du document est évidemment indispensable ne serait-ce que pour établir la "vérité terrain". Il ne faut pas attendre de la machine d'être capable de transcrire ce qu'aucun humain ne saurait lire.</p>''')
+        st.image(image=image_path(liste_images, "infographie_difficultes_htr_ocr.JPG"), caption="Exemple de documents et des difficultés posées par leur transcription")
+
+        st.html('''<h3>Usages de transcription automatique</h3>
+                <p>ajouter les liens - extractions d'informations de provenance d'oeuvres à partir de catalogues ou autres sources, possibilités de recherche en plein texte dans les collections pour les publics ou les employés, aide à la navigation dans des inventaires papiers numérisés...-</p>
+                <h3> Outils </h3> <p>idem, ajouter liens : Transkribus, E scriptorium, Arkindex, Kraken OCR, Calfa Vision, HTR United(?), Azure OCR(?)</p>
+                <h3>Modèles</h3><p>idem, ajouter liens : Tesseract, Pero OCR, Monkey OCR, Paddle OCR, Mistral OCR, Qwen-VL, Churro-OCR, ManuMcFondue? </p>''')
 
             
 
@@ -286,7 +278,8 @@ def projets():
     st.html("to be done")
 page_names_to_func = {"Accueil": accueil,
                       "Lexique": lexique,
-                      "Usages de l'IA": usages,
+                      "Usages métiers de l'IA pour les collections patrimoniales":usages,
+                      "Capacités de l'IA": capacites,
                       "Projets":projets,}
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys())
 page_names_to_func[demo_name]()
