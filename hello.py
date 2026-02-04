@@ -112,7 +112,7 @@ def usages():
 def capacites():
     from pathlib import Path
     import streamlit as st
-    from utils.functions import image_path
+    from modules.utils.functions import image_path
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
     with tab1:
@@ -181,7 +181,7 @@ def capacites():
     with tab2: 
         st.html('''
                 <h2 id="Début-du-guide">Les outils d'intelligence artificielle pour l'exploration de corpus</h2>
-                <p>Les outils d’intelligence artificielle peuvent permettre l’exploration de vastes corpus d’images. Ils
+                <p>Les outils d’intelligence artificielle peuvent permettre l’exploration de vastes corpus d’images sans métadonnées. Ils
                     présentent un intérêt majeur pour les collections de photographies, d’arts graphiques ou d’objets, en
                     aidant à identifier des motifs similaires, à classer les œuvres selon différentes catégories et à
                     décrire ou indexer les images plus efficacement.</p>
@@ -189,49 +189,33 @@ def capacites():
                     établissements publics, en France comme à l’étranger, de nombreuses institutions ont développé des
                     logiciels dédiés à l’exploration et à la navigation au sein de très larges corpus d’images. Ces outils
                     s’appuient sur les progrès récents en vision par ordinateur et en algorithmes de similarité, permettant
-                    notamment de regrouper les images d’un même corpus en fonction de leur contenu visuel ou de
-                    caractéristiques formelles (couleurs, textures, compositions, etc.).
+                    par exemple de regrouper les images d’un même corpus en fonction de leur contenu visuel ou de
+                    caractéristiques formelles (couleurs, textures, compositions, etc.), mais aussi de recherche en langage naturel des images sans annotations, ou encore de repérer très facilement des doublons.
                 </p>
                 <p>
-                    À condition de disposer d’un nombre suffisant d’images à étudier, les chercheur.euses et les
-                    institutions peuvent installer et utiliser aisément plusieurs logiciels gratuits et open source
-                    présentés ci-dessous : PixPlot, VIKUS Viewer, Panoptic.
-                </p>
-
-                <h3>De nouvelles manières de visualiser de vastes corpus d’images</h3>
-
-                <p>
-                    L’utilisation de logiciels comme PixPlot et VIKUS Viewer ouvre de nouvelles perspectives pour
+                    L’utilisation de ces technologies ouvre de nouvelles perspectives pour
                     l’exploration et la compréhension de vastes corpus d’images.
                 </p>''')
         
         st.image(image=image_path("pixplot.png"), caption= "Visualisation globale de 11974 peintures italiennes du RETIF (INHA) grâce au logiciel PixPlot")
-        st.html('''<p>PixPlot est un logiciel open source, développé en 2017 par le Yale Digital Humanities Lab de
-                    l’université de Yale, dans le prolongement des travaux menés lors du projet Replica. Grâce à des
-                    algorithmes d’analyse des images, il permet de visualiser et d’explorer un corpus iconographique en
-                    disposant les images dans un espace en deux dimensions en fonction de leurs similarités visuelles.
-                </p>''')
-        st.image(image=image_path("VikusViewer.png"), caption="Visualisation de 986 dessins et peintures de Vincent van Gogh (1853–90) provenant du Van Gogh Museum à Amsterdam dans VIKUS Viewer")
-                
-        st.html('''        <p>
-                    Le logiciel VIKUS Viewer, développé par l’université de Potsdam, peut organiser les
-                    images dans un espace bidimensionnel selon des métadonnées écrites en dure, ou comme Pixplot, selon leur similarité visuelle. Son interface claire et soignée
-                    permet également de classer les images selon leur date de création, facilitant une lecture diachronique
-                    des corpus.
-                </p>
-
-                <h3>
+        st.html('''<p>Le principe de ces technologies est de transformer les images en des représentations mathématiques complexes, puis, comme illustré ci-dessus, de restituer lesquels de ces objets mathématiques sont les plus proches les unes des autres dans une représentations 2D, pour permettre aux humains d'observer les proximités entre les images.
+                Selon les modèles, ces objets mathématiques peuvent également êtres utilisés pour observer la proximité entre une image et un mot ou un texte, ce qui permet par exemple de chercher les représentations d'un motif dans un lot d'images inconnues sans qu'elles aient été annotées au préalable.
+                </p><h3>
                     Faciliter l’annotation et la documentation des images
                 </h3>''')
+        
+      
 
-        st.image(image=image_path("panoptic.png"), caption='Interface de Panoptic')      
+                
+
+        st.image(image=image_path("tennis_panoptic.JPG"), caption="Recherche via l'application Panoptic, et un modèle CLIP, des images associées au mot tennis dans le dataset bbc_news_alltime sur huggingface.")      
                     
                   
 
         st.html('''        <p>
                     Le logiciel Panoptic, développé par le CERES, est dédié à la visualisation et à l’annotation de grands
                     corpus d’images. Il s’appuie sur différents algorithmes de similarité visuelle que l’utilisateur peut
-                    sélectionner, notamment CLIP et DINO. Ces technologies permettent à Panoptic de regrouper
+                    sélectionner, notamment CLIP et siglip. Ces technologies permettent à Panoptic de regrouper
                     automatiquement des images similaires, d’effectuer des recherches en langage naturel par reconnaissance
                     de contenu et de trier les images de manière efficace. L’un des principaux atouts de Panoptic réside
                     dans sa capacité à associer des annotations et des étiquettes aux images, offrant ainsi un outil adapté
@@ -247,7 +231,8 @@ def capacites():
             de l'IA, et en particulier du deep learning. De nombreux outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans des documents imprimés ou manuscrits, avec des niveaux de performance élevés. </p>
             <h3>Tour d'horizon rapide</h3><p>Ce sont des technologies plus anciennes et plus éprouvées que celles de vision par ordinateur ou des Chatbots à base d'IA
             génératives. Comme mentionné précédemment la transcription se sépare en deux grandes catégories : l'OCR et l'HTR. L'OCR se consacre à la reconnaissance de caractères imprimés, l'HTR à la reconnaissance de caractères manuscrits.</p>''')
-        st.image(image=image_path(liste_images, "OCR_Hugo_BnF.png"), caption="capture d'écran montrant un résultat d'un OCR sur un texte de Victor Hugo")
+        
+        st.image(image=image_path("OCR_Hugo_BnF.png"), caption="capture d'écran montrant un résultat d'un OCR sur un texte de Victor Hugo")
         
         st.html('''<p> Du fait de la nature très répétitive, et de la relative persistance dans le temps des polices imprimées, les modèles d'OCR sont généralement applicables à un large éventail de documents.
                 Cet état de fait implique que l'usage de cette technologie se fait plus facilement à partir de solutions "clé en main" pré-existantes, déjà développées dans le cadre de projets de recherche précédents, ou pour le traitement de texte contemporain. Plus que la transcription même, la difficulté va résider dans la structuration des transcriptions si la mise en page du document est complexe. A l'inverse, l'HTR, du fait de la plus grande variabilié des écritures manuscrites, en particulier dans le temps, va généralement demander un travail de spécialisation des modèles, même si les VLMs les plus récents viennent remettre en cause ce paradigme.
@@ -264,7 +249,7 @@ def capacites():
             <p>En terme d'infrastructures il faut prévoir de la puissance de calcul pour l'application sur
             de larges corpus, et pour l'entraînement ou réentraînement de modèles spécialisés. Pour les moyens humains, une
             personne qui parle la langue, et est capable de lire l'écriture du document est évidemment indispensable ne serait-ce que pour établir la "vérité terrain". Il ne faut pas attendre de la machine d'être capable de transcrire ce qu'aucun humain ne saurait lire.</p>''')
-        st.image(image=image_path(liste_images, "infographie_difficultes_htr_ocr.JPG"), caption="Exemple de documents et des difficultés posées par leur transcription")
+        st.image(image=image_path("infographie_difficultes_htr_ocr.JPG"), caption="Exemple de documents et des difficultés posées par leur transcription")
 
         st.html('''<h3>Usages de transcription automatique</h3>
                 <p>ajouter les liens - extractions d'informations de provenance d'oeuvres à partir de catalogues ou autres sources, possibilités de recherche en plein texte dans les collections pour les publics ou les employés, aide à la navigation dans des inventaires papiers numérisés...-</p>
