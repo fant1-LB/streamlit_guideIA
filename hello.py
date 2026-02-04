@@ -1,7 +1,11 @@
 import streamlit as st
+from pathlib import Path
+import streamlit as st
+
+from modules.utils.functions import image_path
+
 
 def accueil():
-    import streamlit as st
     st.write("# Bienvenue sur notre guide consacré aux projets IA pour l'études des collections patrimoniales en France.")
     st.sidebar.success("Naviguez dans le guide.")
 
@@ -18,7 +22,6 @@ def accueil():
              ''')
 
 def lexique ():
-    import streamlit as st
     st.html ('''<h3 id="API">API</h3>
             <p>Une API, pour <i>application programming interface</i> ou « interface de programmation d'application »
                 est un interface qui permet de connecter un logiciel à une machine en ligne
@@ -112,7 +115,6 @@ def capacites():
     from utils.functions import image_path
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
-    liste_images = [i for i in Path('images').iterdir()]
     with tab1:
         st.html('''    <section class="main">
             <h2>1 - Description, indexation, classification et segmentation d'images</h2>
@@ -154,7 +156,7 @@ def capacites():
             <figure>''')
         
         
-        st.image( image= image_path(liste_images, "classification3.png") , caption ="Représentation d'un modèle entraîné par Pierre Husson au service numérique de la recherche de l'INHA. Le modèle détermine si le tableau est un portrait, une nature morte, un paysage, les autres tableaux sont rassemblés sous le titre fourre-tout de 'scène'." )
+        st.image(image= image_path("classification3.png") , caption ="Représentation d'un modèle entraîné par Pierre Husson au service numérique de la recherche de l'INHA. Le modèle détermine si le tableau est un portrait, une nature morte, un paysage, les autres tableaux sont rassemblés sous le titre fourre-tout de 'scène'." )
                 
                 
         st.html('''<p> La classification est utile pour catégoriser des images sur des corpus massifs mais relativement
@@ -203,13 +205,13 @@ def capacites():
                     l’exploration et la compréhension de vastes corpus d’images.
                 </p>''')
         
-        st.image(image=image_path(liste_images, "pixplot.png"), caption= "Visualisation globale de 11974 peintures italiennes du RETIF (INHA) grâce au logiciel PixPlot")
+        st.image(image=image_path("pixplot.png"), caption= "Visualisation globale de 11974 peintures italiennes du RETIF (INHA) grâce au logiciel PixPlot")
         st.html('''<p>PixPlot est un logiciel open source, développé en 2017 par le Yale Digital Humanities Lab de
                     l’université de Yale, dans le prolongement des travaux menés lors du projet Replica. Grâce à des
                     algorithmes d’analyse des images, il permet de visualiser et d’explorer un corpus iconographique en
                     disposant les images dans un espace en deux dimensions en fonction de leurs similarités visuelles.
                 </p>''')
-        st.image(image=image_path(liste_images, "VikusViewer.png"), caption="Visualisation de 986 dessins et peintures de Vincent van Gogh (1853–90) provenant du Van Gogh Museum à Amsterdam dans VIKUS Viewer")
+        st.image(image=image_path("VikusViewer.png"), caption="Visualisation de 986 dessins et peintures de Vincent van Gogh (1853–90) provenant du Van Gogh Museum à Amsterdam dans VIKUS Viewer")
                 
         st.html('''        <p>
                     Le logiciel VIKUS Viewer, développé par l’université de Potsdam, peut organiser les
@@ -222,7 +224,7 @@ def capacites():
                     Faciliter l’annotation et la documentation des images
                 </h3>''')
 
-        st.image(image=image_path(liste_images, "panoptic.png"), caption='Interface de Panoptic')      
+        st.image(image=image_path("panoptic.png"), caption='Interface de Panoptic')      
                     
                   
 

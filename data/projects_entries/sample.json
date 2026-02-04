@@ -1,0 +1,46 @@
+{
+    "id":"",
+    "titre_projet":"",
+    "usages_IA":[
+        "usage1",
+        "usage2",
+        "usage3"
+    ],
+    "usage_pro":[
+        "usagepro1",
+        "usagepro2"
+    ],
+    "objet_etude":[
+        "documents textuels",
+        "documents iconographiques"
+    ],
+    "montant_financement":{
+        "fourchette":"A",
+        "financement_exact":"12 000"
+    },
+    "dates":[
+        {
+            "id_date":"0",
+            "date":"2012",
+            "type": "creation",
+            "date_text":"Création du projet"
+        },
+        {
+            "id_date":"0",
+            "date":"2015",
+            "type":"jalon",
+            "date_text": "Déplacement du projet autre part"
+        },
+        {   
+            "id_date":"0",
+            "date":"2018",
+            "type":"fin",
+            "date_text": "Fin du projet"
+        }
+    ],
+    "statut_projet":{
+        "statut":"en cours",
+        "livrable":"livrable disponible"
+    },
+    "notice_termine":true
+}
