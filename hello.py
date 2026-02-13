@@ -269,6 +269,6 @@ page_names_to_func = {"Accueil": accueil,
                       "Usages métiers de l'IA pour les collections patrimoniales":usages,
                       "Capacités de l'IA": capacites,
                       "Ajouter un projet":add_project,
-                      "Projets":projets,}
-demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=1)
+                      "Projets":projets}
+demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
 page_names_to_func[demo_name]()
