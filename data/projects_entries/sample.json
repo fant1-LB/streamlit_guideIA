@@ -1,7 +1,17 @@
 {
     "id":"",
     "titre_projet":"",
-    "usages_IA":[
+    "participants":[
+        {
+            "name":"",
+            "type":""
+        },
+        {
+            "name":"",
+            "type":""
+        }
+    ],
+    "methodes_IA":[
         "usage1",
         "usage2",
         "usage3"
@@ -16,7 +26,7 @@
     ],
     "montant_financement":{
         "fourchette":"A",
-        "financement_exact":"12 000"
+        "valeur_approximative_secrete":"12 000"
     },
     "dates":[
         {
@@ -42,5 +52,30 @@
         "statut":"en cours",
         "livrable":"livrable disponible"
     },
+    "source_financement":[
+        "source_1",
+        "source_2"
+    ],
+    "nbr_personnes_impliques":"",
+    "quantite_donnees":"",
+    "puissance_calcul_interne":false,
+    "ingenierie_interne":false,
+    "livrables":[
+        "donnes_structurees",
+        ""
+    ],
+    "ressources":[
+        {
+            "titre":"",
+            "url":""
+        }
+    ],
+    "description":"",
+    "contacts":[
+        {
+            "nom":"",
+            "email":""
+        }
+    ],
     "notice_termine":true
 }

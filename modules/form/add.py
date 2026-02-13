@@ -81,6 +81,26 @@ def add_project():
         statut = st.selectbox("Statut", ["en cours", "terminé"])
         livrable = st.selectbox("Livrables", ["livrables disponibles", "livrables non disponibles"])
 
+        # --- Personnes impliquées ---
+        st.subheader("Personnes impliquées")
+        nbr_personnes = st.text_area("Personnes impliquées et comment")
+
+        # --- quantités de données ---
+        st.subheader("Quantités de données")
+        quantite_donnees = st.text_input("Quantités de données du projet")
+
+        # --- Description du projet ---
+        st.subheader("Description du projet")
+        description = st.text_area("Description du projet")
+
+        ingenierie_interne = st.checkbox("Ingénierie en interne")
+        puissance_calcul = st.checkbox("Puissance de calcul en interne")
+
+        source_financement = 0
+        livrables = 0
+        contacts = 0
+        ressources = 0
+
         # --- Notice ---
         notice_termine = st.checkbox("Notice terminée")
 
@@ -100,7 +120,16 @@ def add_project():
                 "statut": statut,
                 "livrable": livrable
             },
-            "notice_termine": notice_termine
+            "source_financement": source_financement,
+            "nbr_personnes_impliques": nbr_personnes,
+            "quantite_donnees": quantite_donnees,
+            "puissance_calcul_interne": puissance_calcul,
+            "ingenierie_interne": ingenierie_interne,
+            "livrables": livrables,
+            "ressources": ressources,
+            "description": description,
+            "contacts": contacts,
+            "notice_termine": notice_termine,
         }
 
         if st.button("Enregistrer la notice"):
