@@ -3,13 +3,13 @@ from pathlib import Path
 import streamlit as st
 
 from modules.utils.functions import image_path
-
+from modules.form.add import add_project
 
 def accueil():
     st.write("# Bienvenue sur notre guide consacré aux projets IA pour l'études des collections patrimoniales en France.")
     st.sidebar.success("Naviguez dans le guide.")
 
-    st.html ('''<p> Ce guide de ressources a pour objectif de donner un premier aperçu et quelques conseils de bonnes pratiques, en
+    st.html('''<p> Ce guide de ressources a pour objectif de donner un premier aperçu et quelques conseils de bonnes pratiques, en
                 particulier issues des expériences du consortium PictorIA sur la manière de traiter des données
                 patrimoniales à l'aide d'outils IA. Dans le contexte de ce guide le terme IA recouvrira les technologies
                 ayant recours au <i> machine-learning</i>. Ce guide ne traitera pas de formes d'IA tel que les forêts de
@@ -22,7 +22,7 @@ def accueil():
              ''')
 
 def lexique ():
-    st.html ('''<h3 id="API">API</h3>
+    st.html('''<h3 id="API">API</h3>
             <p>Une API, pour <i>application programming interface</i> ou « interface de programmation d'application »
                 est un interface qui permet de connecter un logiciel à une machine en ligne
                 pour y effectuer des requêtes. Les APIs permettent par exemple d'envoyer sur un serveur extérieur des
@@ -283,9 +283,11 @@ def usages():
 
 def projets():
     st.html("to be done")
+
 page_names_to_func = {"Accueil": accueil,
                       "Lexique": lexique,
                       "Usages de l'IA": usages,
-                      "Projets":projets,}
+                      "Projets":projets,
+                      "Ajouter un projet":add_project}
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys())
 page_names_to_func[demo_name]()

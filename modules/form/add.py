@@ -9,6 +9,10 @@ def add_project():
     # --- Champs simples ---
     projet_id = st.text_input("ID de la notice")
 
+    if not projet_id:
+        st.error("Avant de commencer à entrer des données, veuillez donner un identifiant à votre notice")
+
+
     if projet_id:
         titre_projet = st.text_input("Titre du projet")
 
