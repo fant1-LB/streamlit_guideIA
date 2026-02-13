@@ -57,7 +57,10 @@
         "source_2"
     ],
     "nbr_personnes_impliques":"",
-    "quantite_donnees":"",
+    "quantite_donnees":[
+        "",
+        ""
+    ],
     "puissance_calcul_interne":false,
     "ingenierie_interne":false,
     "livrables":[
@@ -77,5 +80,6 @@
             "email":""
         }
     ],
+    "illustration":"",
     "notice_termine":true
 }

@@ -101,6 +101,13 @@ def add_project():
         contacts = 0
         ressources = 0
 
+        illustration = st.text_input("Image")
+        if st.button("Afficher l'image"):
+            if illustration:
+                st.image(illustration, caption=illustration)
+            else:
+                st.warning("Attention pas d'image selectionnée")
+        
         # --- Notice ---
         notice_termine = st.checkbox("Notice terminée")
 
@@ -129,6 +136,7 @@ def add_project():
             "ressources": ressources,
             "description": description,
             "contacts": contacts,
+            "illustration": illustration,
             "notice_termine": notice_termine,
         }
 
