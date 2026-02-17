@@ -19,6 +19,7 @@ def accueil():
             Du fait de l'évolution très rapide des technologies dans ce secteur certains des projets et certaines des applications présentées dans ce guide peuvent être obsolètes au moment de la lecture.
             En introduction de ce guide nous voulons également insister sur le fait que l'"IA" ne doit pas être une fin en soi, et devrait être utilisée comme un outil pour accomplir une mission.
             A ce titre, des questions telles que le régime de droit des données traitées, le coût économique, écologique ou l'accompagnement au changement doivent être réflechies de la même manière que pour n'importe quel outil numérique.</p>
+            <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie pourra significativement faciliter le travail, il faut compter de très nombreuses heures de travail d'annotation, étude des collections et réflexions techniques.</p>
              ''')
 
 def lexique ():
@@ -87,7 +88,7 @@ def lexique ():
                 <em>généralistes</em>, ou <em>modèles de fondation</em> capables de réaliser des tâches ou de traiter des données très variées (comme la plupart des LLMs génératifs grand public). Les
                 modèles spécialisés requièrent habituellement moins de puissance de calcul que les généralistes.
             </p>
-            <p>Ex : YoloV8 reçoit une image en entrée, et propose les coordonnées et le nom d’objets détectés sur
+            <p>Ex : un modèle YoloV8n reçoit une image en entrée, et propose les coordonnées et le nom d’objets détectés sur
                 l’image en sortie. Tesseract-ocr reçoit une image de texte imprimé et propose une transcription en
                 sortie.</p>
             <h3 id="OCRHTR">OCR/HTR</h3>
@@ -108,7 +109,11 @@ def lexique ():
                 technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
             </p>''')
 def usages():
-    st.markdown("à voir, probablement un tableau?") 
+    st.markdown("Etudes de provenance, indexation, Passage au format numérique d'infos structurée, valorisation, description et classification ") 
+
+
+
+
 def capacites():
     from pathlib import Path
     import streamlit as st
@@ -119,9 +124,8 @@ def capacites():
         st.html('''    <section class="main">
             <h2>1 - Description, indexation, classification et segmentation d'images</h2>
             <p>Cette section décrira les usages possibles de technologies IA pour améliorer la connaissance scientifique
-                sur les collections. En préambule de cette section, il faut préciser que les technologies IA actuelles,
-                et dans un futur proche n'ont absolument pas vocation à remplacer les personnels scientifiques des
-                musées, ne serait-ce que parce que leur travail est absolument nécessaire pour entraîner, évaluer et
+                sur les collections. En préambule de cette section, il faut préciser que les technologies IA n'ont pas vocation à remplacer les personnels scientifiques des
+                musées, ne serait-ce que parce que leur travail est absolument nécessaire pour évaluer et
                 contrôler les systèmes IA.
                 En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou <i>finetuning </i> de modèles spécialisés
                 requiert l'aide de spécialistes
@@ -138,8 +142,7 @@ def capacites():
                 déterminer quels types de meubles sont présents sur les dessins préparatoires de designers.
                 Elle peut aussi par exemple servir de pré-traitement pour travailler sur des images contenues dans des
                 ouvrages, ou dans d'autres images. On peut envisager ainsi de repérer les oeuvres dans des photographies
-                d'exposition, dans des catalogues d'exposition, ou encore des manuscrits, comme ça a été le cas pour les
-                projets EIDA et VHS. </p>
+                d'exposition, dans des catalogues d'exposition, ou encore des manuscrits. </p>
             <p> Les principales familles de modèles de segmentation sont les modèles comme YOLO, ou DINO, qui associent une
                 "classe" à des parties de l'image, ou les modèles SAM, capables de découper les images en fonction des
                 traits et de caractéristiques visuelles.</p>
@@ -168,7 +171,7 @@ def capacites():
             <p>La description et l'indexation d'images sont deux objets problématiques loin d'être résolus au moment
                 d'écriture de ce guide. La description est envisageable avec des modèles type VLM, mais pose le problème
                 fondamental de la mesurabilité des résultats. L'indexation sur plusieurs niveaux à l'aide de thésaurus
-                complexes comme le thésaurus Garnier pose un problème différent, qui est l'inadaptation des modèles d'IA
+                complexes comme le thésaurus Garnier ou IconClass pose un problème différent, qui est l'inadaptation des modèles d'IA
                 contemporrains à ces plusieurs niveaux d'indexation.
                 On peut envisager un traitement par plusieurs modèles de classification pour imiter les différents
                 niveaux d'un thésaurus, mais il faut noter que la multiplication des traitements multiplie le nombre
@@ -213,13 +216,8 @@ def capacites():
                   
 
         st.html('''        <p>
-                    Le logiciel Panoptic, développé par le CERES, est dédié à la visualisation et à l’annotation de grands
-                    corpus d’images. Il s’appuie sur différents algorithmes de similarité visuelle que l’utilisateur peut
-                    sélectionner, notamment CLIP et siglip. Ces technologies permettent à Panoptic de regrouper
-                    automatiquement des images similaires, d’effectuer des recherches en langage naturel par reconnaissance
-                    de contenu et de trier les images de manière efficace. L’un des principaux atouts de Panoptic réside
-                    dans sa capacité à associer des annotations et des étiquettes aux images, offrant ainsi un outil adapté
-                    aux besoins de documentation des collections.
+                    L'exemple ci dessus, avec le logiciel Panoptic, montre les possibilités qu'offrent concrétement ces technologies. On peut ainsi très rapidement extraire d'une masse d'images non annotées des éléments pour les documenter en masse. On peut également envisager des applications qui suggèrent des mots à associer à une image, ou encore des images proches des autres images d'une catégorie d'indexation. Ces technologies ont la capacité de grandement accélerer le travail de documentation des images.
+                
                 </p>
                ''')               
                 
@@ -252,9 +250,34 @@ def capacites():
         st.image(image=image_path("infographie_difficultes_htr_ocr.JPG"), caption="Exemple de documents et des difficultés posées par leur transcription")
 
         st.html('''<h3>Usages de transcription automatique</h3>
-                <p>ajouter les liens - extractions d'informations de provenance d'oeuvres à partir de catalogues ou autres sources, possibilités de recherche en plein texte dans les collections pour les publics ou les employés, aide à la navigation dans des inventaires papiers numérisés...-</p>
-                <h3> Outils </h3> <p>idem, ajouter liens : Transkribus, E scriptorium, Arkindex, Kraken OCR, Calfa Vision, HTR United(?), Azure OCR(?)</p>
-                <h3>Modèles</h3><p>idem, ajouter liens : Tesseract, Pero OCR, Monkey OCR, Paddle OCR, Mistral OCR, Qwen-VL, Churro-OCR, ManuMcFondue? </p>''')
+                <p>A partir des ces technologies, on peut aider de très nombreuses tâches en lien avec les collections. 
+                Les transcriptions automatiques peuvent servir à la documentation des collections, de leurs parcours et de leurs provenances. La transcription de documents peut grandement faciliter l'accès aux documents concernant les oeuvres. En plus de cela, les VLMs contemporrains sont capables de transformer la transcription en données structurées. On peut ainsi envisager des traitements qui permettent par exemple d'extraire de catalogues de ventes, ou de registres divers, des informations ciblées pour documenter un lot d'oeuvres.  </p>
+                <p>En plus de cela le fait de diposer de transcriptions intégrales de textes permet évidemment des recherche beaucoup plus faciles dans des grands lots de textes numérisés, ou encore d'extraire des informations d'objets mêlant texte et image, comme des affiches ou des albums de photographies. </p>
+                
+                <h3> Outils et ressource</h3>
+                <p> De nombreux outils et ressources existent spécifiquement pour faire de l'OCR et HTR, une sélection non exhaustive ci-dessous :</p>
+                <ul>
+                <li><a href="https://www.transkribus.org/fr">Transkribus, plateforme pour la numérisation, reconnaissance et transcription de textes historiques.</a> </li>
+                <li><a href="https://escriptorium.inria.fr/">E-scriptorim, plateforme pour la transcription de textes de l'INRIA. </li>
+                <li><a href="https://htr-united.github.io/">HTR united, catalogue de jeux de données pour la transcription automatique.</a></li>
+                <li><a href="https://github.com/kba/awesome-ocr"> Awesome OCR (2021), guide des bases et des ressources pour l'OCR en 2021. </a></li> 
+                <li><a href="https://www.teklia.com/arkindex"> Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.</a></li>
+                <li><a href="https://vision.calfa.fr/">Calfa Vision, plateforme développée par l'association Calfa, pour la transcriptions d'écritures non latines.</a>  </li>
+                <li><a href="https://huggingface.co/models?pipeline_tag=image-to-text"> La liste des modèles d'OCR disponibles sur hugging face. </a>
+                <li><a href="https://github.com/mittagessen/kraken">Kraken OCR, l'un des premiers moteurs d'OCR performants s'étant imposé dans les LAMs français. Il permet d'utiliser et ré-entraîner un certain nombre de modèles ouverts.</a></li>
+
+                </ul>
+                
+                <h3>Modèles</h3>
+                <p>Si les technologies évoluent très vite, au moment d'écriture de ce guide nous pouvons citer un certain nombre de modèles IA capables de réaliser des tâches de transcription adaptés au contexte patrimonial. </p>
+                <ul><li><a href="https://pero-ocr.fit.vutbr.cz/">Pero-OCR, modèle de transcription de revues et journaux.</a></li>
+                <li><a href="https://huggingface.co/zai-org/GLM-OCR">GLM-OCR, modèle de transcription généraliste.</a></li>
+                <li><a href="https://github.com/PaddlePaddle/PaddleOCR">Paddle-OCR, modèle de transcription généraliste</a></li>
+                <li><a href="https://mistral.ai/news/mistral-ocr">Mistral OCR, modèle de transcription de Mistral AI. Ce modèle a l'avantage d'être plutôt plus adapté au français qu'une partie de ses concurrents</a></li>
+                <li><a href="https://github.com/tesseract-ocr/tesseract">Tesseract, modèle historique dominant pour l'OCR, disponible en plus d'une centaine de langages.</li>
+                <li> <a href="https://qwen.ai/blog?id=qwen3-vl">QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.</a>  </li>
+                </ul>
+                ''')
 
             
 
