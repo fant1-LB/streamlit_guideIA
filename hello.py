@@ -25,7 +25,7 @@ def accueil():
 def lexique ():
     st.html('''<h3 id="API">API</h3>
             <p>Une API, pour <i>application programming interface</i> ou « interface de programmation d'application »
-                est un interface qui permet de connecter un logiciel à une machine en ligne
+                est une interface qui permet de connecter un logiciel à une machine en ligne
                 pour y effectuer des requêtes. Les APIs permettent par exemple d'envoyer sur un serveur extérieur des
                 requêtes à des modèles d'IA trop lourds pour tourner sur notre propre machine.
                 Un code, même executé localement, qui implique un appel d'API, partagera des données avec un serveur
