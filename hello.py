@@ -2,9 +2,11 @@ import streamlit as st
 from pathlib import Path
 import streamlit as st
 
-from modules.utils.functions import image_path
+from modules.data.images import image_path
 from modules.entries.add import add_project
 from modules.entries.show import afficher_projets
+
+from data.pages.usages_ia.navigation import usage_navigation
 
 def accueil():
     st.write("# Bienvenue sur notre guide consacré aux projets IA pour l'études des collections patrimoniales en France.")
@@ -118,7 +120,7 @@ def usages():
 def capacites():
     from pathlib import Path
     import streamlit as st
-    from modules.utils.functions import image_path
+    
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
     with tab1:
@@ -183,44 +185,7 @@ def capacites():
             </p>''')
 
     with tab2: 
-        st.html('''
-                <h2 id="Début-du-guide">Les outils d'intelligence artificielle pour l'exploration de corpus</h2>
-                <p>Les outils d’intelligence artificielle peuvent permettre l’exploration de vastes corpus d’images sans métadonnées. Ils
-                    présentent un intérêt majeur pour les collections de photographies, d’arts graphiques ou d’objets, en
-                    aidant à identifier des motifs similaires, à classer les œuvres selon différentes catégories et à
-                    décrire ou indexer les images plus efficacement.</p>
-                <p>Au cours des dernières années, dans le cadre de projets de recherche menés par des universités et des
-                    établissements publics, en France comme à l’étranger, de nombreuses institutions ont développé des
-                    logiciels dédiés à l’exploration et à la navigation au sein de très larges corpus d’images. Ces outils
-                    s’appuient sur les progrès récents en vision par ordinateur et en algorithmes de similarité, permettant
-                    par exemple de regrouper les images d’un même corpus en fonction de leur contenu visuel ou de
-                    caractéristiques formelles (couleurs, textures, compositions, etc.), mais aussi de recherche en langage naturel des images sans annotations, ou encore de repérer très facilement des doublons.
-                </p>
-                <p>
-                    L’utilisation de ces technologies ouvre de nouvelles perspectives pour
-                    l’exploration et la compréhension de vastes corpus d’images.
-                </p>''')
-        
-        st.image(image=image_path("pixplot.png"), caption= "Visualisation globale de 11974 peintures italiennes du RETIF (INHA) grâce au logiciel PixPlot")
-        st.html('''<p>Le principe de ces technologies est de transformer les images en des représentations mathématiques complexes, puis, comme illustré ci-dessus, de restituer lesquels de ces objets mathématiques sont les plus proches les unes des autres dans une représentations 2D, pour permettre aux humains d'observer les proximités entre les images.
-                Selon les modèles, ces objets mathématiques peuvent également êtres utilisés pour observer la proximité entre une image et un mot ou un texte, ce qui permet par exemple de chercher les représentations d'un motif dans un lot d'images inconnues sans qu'elles aient été annotées au préalable.
-                </p><h3>
-                    Faciliter l’annotation et la documentation des images
-                </h3>''')
-        
-      
-
-                
-
-        st.image(image=image_path("tennis_panoptic.JPG"), caption="Recherche via l'application Panoptic, et un modèle CLIP, des images associées au mot tennis dans le dataset bbc_news_alltime sur huggingface.")      
-                    
-                  
-
-        st.html('''        <p>
-                    L'exemple ci dessus, avec le logiciel Panoptic, montre les possibilités qu'offrent concrétement ces technologies. On peut ainsi très rapidement extraire d'une masse d'images non annotées des éléments pour les documenter en masse. On peut également envisager des applications qui suggèrent des mots à associer à une image, ou encore des images proches des autres images d'une catégorie d'indexation. Ces technologies ont la capacité de grandement accélerer le travail de documentation des images.
-                
-                </p>
-               ''')               
+        usage_navigation()
                 
         
     with tab3:

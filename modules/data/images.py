@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 
 def is_valid_url(url: str) -> bool:
     pattern = re.compile(
@@ -7,3 +8,7 @@ def is_valid_url(url: str) -> bool:
         r"(\/.*)?$"
     )
     return bool(pattern.match(url))
+
+def image_path(image_name, base_dir=Path("data/images")):
+    path = base_dir / image_name
+    return path if path.exists() else None
