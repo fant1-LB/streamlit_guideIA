@@ -3,7 +3,8 @@ from pathlib import Path
 import streamlit as st
 
 from modules.utils.functions import image_path
-from modules.form.add import add_project
+from modules.entries.add import add_project
+from modules.entries.show import afficher_projets
 
 def accueil():
     st.write("# Bienvenue sur notre guide consacré aux projets IA pour l'études des collections patrimoniales en France.")
@@ -292,6 +293,7 @@ page_names_to_func = {"Accueil": accueil,
                       "Usages métiers de l'IA pour les collections patrimoniales":usages,
                       "Capacités de l'IA": capacites,
                       "Ajouter un projet":add_project,
-                      "Projets":projets}
+                      "Projets":afficher_projets}
+
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
 page_names_to_func[demo_name]()

@@ -4,7 +4,7 @@ import json
 import uuid
 
 from modules.data.save_entry import save_notice
-from modules.data.forms import load_list_form, save_to_list_form, sync_list_form
+from modules.data.forms import load_list_form, sync_list_form
 from modules.data.images import is_valid_url
 
 def add_project():
