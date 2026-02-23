@@ -111,8 +111,7 @@ def lexique ():
                 une plus grande quantité d’informations que si elles étaient fournies en langage naturel. Cette
                 technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
             </p>''')
-def usages():
-    st.markdown("Etudes de provenance, indexation, Passage au format numérique d'infos structurée, valorisation, description et classification ") 
+
 
 
 
@@ -124,126 +123,106 @@ def capacites():
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Navigation sans métadonnées dans des corpus massifs", "Transcription de textes", "Chatbots et assimilés"])
     with tab1:
-        st.html('''    <section class="main">
-            <h2>1 - Description, indexation, classification et segmentation d'images</h2>
-            <p>Cette section décrira les usages possibles de technologies IA pour améliorer la connaissance scientifique
-                sur les collections. En préambule de cette section, il faut préciser que les technologies IA n'ont pas vocation à remplacer les personnels scientifiques des
-                musées, ne serait-ce que parce que leur travail est absolument nécessaire pour évaluer et
-                contrôler les systèmes IA.
-                En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou <i>finetuning </i> de modèles spécialisés
-                requiert l'aide de spécialistes
-                capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des
-                outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.</p>
+        st.markdown('''### Description, indexation, classification et segmentation d'images
+
+                
+
+
+Cette section décrira les usages possibles de technologies IA pour améliorer la connaissance scientifique sur les collections. En préambule de cette section, il faut préciser que les technologies IA n'ont pas vocation à remplacer les personnels scientifiques des musées, ne serait-ce que parce que leur travail est absolument nécessaire pour évaluer et contrôler les systèmes IA. En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou _finetuning_ de modèles spécialisés requiert l'aide de spécialistes capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.
+
+Un usage efficace à mettre en place de l'IA observé dans ces travaux est d'abord la segmentation d'éléments dans des vues numérisées.''', text_alignment="justify")
+        
+        st.markdown('''La segmentation peut servir, sur des corpus sériels, à identifier les éléments représentés sur une image. On peut par exemple faire appel à cette technique pour savoir quels types d'objets sont présents sur des dessins préparatoires, repérer des personnages ou motifs récurrents sur des oeuvres picturales, ou encore repérer des attributs spécifiques sur une oeuvre. Elle peut aussi par exemple servir de pré-traitement pour travailler sur des images contenues dans des ouvrages, ou dans d'autres images. On peut envisager ainsi de repérer les oeuvres dans des photographies d'exposition, dans des catalogues d'exposition, ou encore les illustrations de manuscrits.
+
+Selon les modèles et les besoins, la segmentation peut se contenter d'extraire des formes des images ( ce qui peut par exemple accélerer l'annotation manuelle d'images, ou permettre d'identifier les motifs récurrents d'un document à un autre), ou extraire en y associant une identification ou "classe", ce qui permet de savoir directement ce qui, selon le modèle, se trouve sur l'image. Le premier type aura l'avantage de pouvoir fonctionner peu importe le terrain d'étude, la ou le second type aura généralement besoin d'être spécialisé avant, ce qui implique un travaille d'annotation pour l'entraînement du modèle.
+
+Les modèles de classification vont, comme leur nom l'indique, associer à l'intégralité d'une image une "classe". Contrairement aux modèles de segmentation, qui peuvent, pour certains associer des classes à une partie de l'image, les modèles de classification associent une classe à l'intégralité de l'image. On peut par exemple facilement envisager des traitements qui sépareraient les images en grandes catégories, , ou à l'aide de modèles spécialisés pour affiner le travail sur des corpus déjà triés. Il faut généralement retenir le principe que plus on demandera de classes différentes à un modèle, moins il sera précis pour un entraînement équivalent.
+            ''', text_alignment="justify")
+        
+        st.image(image=image_path("excelsior.jpg"), caption="Extraction par segmentation des photographies d'une page de journal (Excelsior du 24 novembre 1910 - ark:/12148/bpt6k4600008j) à l'aide d'un modèle YOLO")        
+                
+        st.markdown('''La classification est utile pour catégoriser des images sur des corpus massifs mais relativement homogènes. En l'état ces modèles ne sont pas fiables sur un trop grand nombre de classes, mais fonctionnels sur un petit nombre. Comme la segmentation, les modèles de types Yolo ou Dino peuvent réaliser des classifications. On peut également utiliser certains modèles de VLM/LLM, comme Florence, ou Qwen pour ces tâches, mais obtenir des sorties structurées et controlables de ces modèles demande un travail plus fin.
+
+La description et l'indexation d'images sont deux objets problématiques loin d'être résolus au moment d'écriture de ce guide. La description est envisageable avec des modèles type VLM, mais pose le problème fondamental de la mesurabilité des résultats. L'indexation sur plusieurs niveaux à l'aide de thésaurus complexes comme le thésaurus Garnier ou IconClass pose un problème différent, qui est l'inadaptation des modèles d'IA contemporrains à ces plusieurs niveaux d'indexation. On peut envisager un traitement par plusieurs modèles de classification pour imiter les différents niveaux d'un thésaurus, mais il faut noter que la multiplication des traitements multiplie le nombre d'erreurs, et chaque entraînement a un cout technique et écologique qui doit être pris en compte. Pour ces deux usages, s'il ne faut pas exclure les traitement entièrement automatisés, sur des quantités raisonnables d'images nous recommanderions plutôt d'avoir recours à l'IA pour appuyer le personnel scientifique, dans le cadre de traitements semi automatiques.
+
+### Outils et ressource
+
+De nombreux outils et ressources existent à propos de la segmentation et de la classification d'images une sélection non exhaustive ci-dessous :
+
+*   [L'article en profondeur d'IBM consacré aux différents types de segmentation.](https://www.ibm.com/fr-fr/think/topics/image-segmentation)
+*   [Roboflow, plateforme en ligne pour la segmentation d'image. La plateforme dispose d'options gratuites et payantes, selon les besoins qu'on a.](https://roboflow.com/)
+*   [La Google Teachable Machine, application en ligne pour expérimenter avec la classification d'images.](https://teachablemachine.withgoogle.com/train)
+*   [Aikon, plateforme de l'ERC discover à l'école nationale des ponts et chaussées pour la segmentation de manuscrits.](https://aikon-platform.github.io/)
+*   [Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.](https://www.teklia.com/arkindex)
+*   [Labelstudio, plateforme d'annotation développée par l'entreprise Humansignal pour l'annotation d'images pour différentes formes de segmentation.](https://labelstud.io/)
+
+### Modèles
+
+Si les technologies évoluent très vite, la classification et la segmentation sont dominées par un certain nombre de familles de modèles :
+
+*   [Les modèles Yolo, développés par la société Ultralytics, sont une famille de modèles permettant segmentation, classification, détection de poses, traque d'objets... Ces modèles sont relativement légers et faciles à adapter à des besoins spécifiques.](https://docs.ultralytics.com/fr/)
+*   [SAM, série de modèles de segmentation développés par Meta, ayant la capacité de segmenter une image sans essayer d'attribuer une classe aux éléments ségmentés. Les versions les plus récentes permettent de segmenter selon un prompt.](https://github.com/facebookresearch/segment-anything)
+*   [DINO, série de modèles pouvant réaliser des tâches de segmentation variées (segmentation, classification, extraction de zones d'intérêt... etc), développé par Meta.](https://ai.meta.com/research/dinov3/)
+*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl)''',text_alignment="justify")
             
-            <p>Un usage efficace à mettre en place de l'IA observé dans ces travaux est d'abord la segmentation
-                d'éléments dans des vues numérisées. Ci-dessous un exemple réalisé à l'aide d'un modèle Yolo : </p>''')
-        st.image(image="https://cdn.prod.website-files.com/680a070c3b99253410dd3df5/684d85646cdaf7e5252b8497_67ed519cbf3f228c7bb790d7_67c99ff6c72a1cf68c554ff4_Segmentation_fig5.webp", caption="Des engins de chantiers segmentés à l'aide d'un modèle yolo")        
-          
-
-        st.html('''<p>La segmentation peut servir, sur des corpus sériels, à identifier les éléments représentés sur une
-                images. Dans le cadre du projet Torne-H, un modèle de segmentation a par exemple été entraîné afin de
-                déterminer quels types de meubles sont présents sur les dessins préparatoires de designers.
-                Elle peut aussi par exemple servir de pré-traitement pour travailler sur des images contenues dans des
-                ouvrages, ou dans d'autres images. On peut envisager ainsi de repérer les oeuvres dans des photographies
-                d'exposition, dans des catalogues d'exposition, ou encore des manuscrits. </p>
-            <p> Les principales familles de modèles de segmentation sont les modèles comme YOLO, ou DINO, qui associent une
-                "classe" à des parties de l'image, ou les modèles SAM, capables de découper les images en fonction des
-                traits et de caractéristiques visuelles.</p>
-
-            <p>Les modèles de classification vont, comme leur nom l'indique, associer une image à une "classe".
-                Contrairement aux modèles de segmentation, qui peuvent, pour certains associer des classes à une partie
-                de l'image, les modèles de classification associent une classe à l'intégralité de l'image.
-                Ce type de modèle sera particulièrement intéressant sur un nombre limité de classe. On peut par exemple
-                facilement envisager des traitements qui sépareraient les images sur un niveau de description "bas",
-                comme c'est le cas dans l'image ci-dessous, ou à l'aide de modèles spécialisés sur des corpus déjà
-                triés. C'est par exemple ce qui a pu être fait sur des motifs de tessons de poterie.
-                Il faut plus généralement retenir le principe que plus on demandera de classes différentes à un modèle,
-                moins il sera précis pour un entraînement équivalent.</p>
-            <figure>''')
-        
-        
-        st.image(image= image_path("classification3.png") , caption ="Représentation d'un modèle entraîné par Pierre Husson au service numérique de la recherche de l'INHA. Le modèle détermine si le tableau est un portrait, une nature morte, un paysage, les autres tableaux sont rassemblés sous le titre fourre-tout de 'scène'." )
-                
-                
-        st.html('''<p> La classification est utile pour catégoriser des images sur des corpus massifs mais relativement
-                homogènes. En l'état ces modèles ne sont pas fiables sur un trop grand nombre de classes, mais
-                fonctionnels sur un petit nombre. Comme la segmentation, les modèles de types Yolo ou Dino peuvent
-                réaliser des classifications. On peut également utiliser certains modèles de VLM/LLM, comme Florence, ou Qwen pour ces tâches, mais obtenir
-                des
-                sorties structurées et controlables de ces modèles demande un travail plus fin. </p>
-            <p>La description et l'indexation d'images sont deux objets problématiques loin d'être résolus au moment
-                d'écriture de ce guide. La description est envisageable avec des modèles type VLM, mais pose le problème
-                fondamental de la mesurabilité des résultats. L'indexation sur plusieurs niveaux à l'aide de thésaurus
-                complexes comme le thésaurus Garnier ou IconClass pose un problème différent, qui est l'inadaptation des modèles d'IA
-                contemporrains à ces plusieurs niveaux d'indexation.
-                On peut envisager un traitement par plusieurs modèles de classification pour imiter les différents
-                niveaux d'un thésaurus, mais il faut noter que la multiplication des traitements multiplie le nombre
-                d'erreurs, et chaque entraînement a un cout technique et écologique qui doit être pris en compte. Pour
-                ces deux usages, s'il ne faut pas exclure les traitement entièrement automatisés, sur des quantités
-                raisonnables d'images nous recommanderions plutôt d'avoir recours à l'IA pour appuyer le personnel
-                scientifique, dans le cadre de traitements semi automatiques.
-            </p>''')
 
     with tab2: 
         usage_navigation()
                 
         
     with tab3:
-        st.html(''' <h2>Reconnaissance et transcription de textes imprimés et manuscrits</h2>
-            <p>Cette section décrira les usages possibles de technologies IA pour transcrire automatiquement du texte dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten
-            Text Recognition) sont des technologies qui ont beaucoup évolués ces dernières années grâce aux progrès
-            de l'IA, et en particulier du deep learning. De nombreux outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans des documents imprimés ou manuscrits, avec des niveaux de performance élevés. </p>
-            <h3>Tour d'horizon rapide</h3><p>Ce sont des technologies plus anciennes et plus éprouvées que celles de vision par ordinateur ou des Chatbots à base d'IA
-            génératives. Comme mentionné précédemment la transcription se sépare en deux grandes catégories : l'OCR et l'HTR. L'OCR se consacre à la reconnaissance de caractères imprimés, l'HTR à la reconnaissance de caractères manuscrits.</p>''')
+        st.markdown('''Reconnaissance et transcription de textes imprimés et manuscrits
+----------------------------------------------------------------
+
+Cette section décrira les usages possibles de technologies IA pour transcrire automatiquement du texte dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten Text Recognition) sont des technologies qui ont beaucoup évolués ces dernières années grâce aux progrès de l'IA, et en particulier du deep learning. De nombreux outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans des documents imprimés ou manuscrits, avec des niveaux de performance élevés.
+
+### Tour d'horizon rapide
+
+Ce sont des technologies plus anciennes et plus éprouvées que celles de vision par ordinateur ou des Chatbots à base d'IA génératives. Comme mentionné précédemment la transcription se sépare en deux grandes catégories : l'OCR et l'HTR. L'OCR se consacre à la reconnaissance de caractères imprimés, l'HTR à la reconnaissance de caractères manuscrits.''', text_alignment = "justify")
         
         st.image(image=image_path("OCR_Hugo_BnF.png"), caption="capture d'écran montrant un résultat d'un OCR sur un texte de Victor Hugo")
         
-        st.html('''<p> Du fait de la nature très répétitive, et de la relative persistance dans le temps des polices imprimées, les modèles d'OCR sont généralement applicables à un large éventail de documents.
-                Cet état de fait implique que l'usage de cette technologie se fait plus facilement à partir de solutions "clé en main" pré-existantes, déjà développées dans le cadre de projets de recherche précédents, ou pour le traitement de texte contemporain. Plus que la transcription même, la difficulté va résider dans la structuration des transcriptions si la mise en page du document est complexe. A l'inverse, l'HTR, du fait de la plus grande variabilié des écritures manuscrites, en particulier dans le temps, va généralement demander un travail de spécialisation des modèles, même si les VLMs les plus récents viennent remettre en cause ce paradigme.
-                Dans les deux cas, il faudra prévoir une vérité terrain, c'est à dire quelques documents représentatifs du corpus traité transcrits à la main, pour mesurer la fiabilité de l'instrument d'OCR ou d'HTR utilisé. La qualité d'une transcription est généralement mesurée à partir du CER (Character Error Rate), c'est à dire le pourcentage de caractères faux dans la transcription par rapport à la "vérité terrain", ou le WER (Word Error Rate), qui est de son côté le pourcentage de mots faux.
-                
-                <h3>Mise en place</h3>
-            
-                
-            <p>La mise en place de ces technologies dépendra de vos objectifs, de vos compétences techniques et de vos
-            ressources matérielles. Pour des besoins ponctuels ou des volumes limités, des solutions toutes faites en ligne peuvent être suffisantes. Pour des besoins plus importants ou des exigences spécifiques,
-            la mise en place de chaînes de traitement plus complètes ou personnalisées sera sans doute nécessaire. Comme toujours, il faut évaluer avant de se lancer dans le projet la pertinence du temps et des coûts engagés dans le projet par rapport à un travail manuel.</p>
-            <p>Il est important de noter que la qualité des résultats dépendra fortement de la qualité des images
-            numérisées et des spécificité des documents (langue, écriture, mise en page...).  </p>
-            <p>En terme d'infrastructures il faut prévoir de la puissance de calcul pour l'application sur
-            de larges corpus, et pour l'entraînement ou réentraînement de modèles spécialisés. Pour les moyens humains, une
-            personne qui parle la langue, et est capable de lire l'écriture du document est évidemment indispensable ne serait-ce que pour établir la "vérité terrain". Il ne faut pas attendre de la machine d'être capable de transcrire ce qu'aucun humain ne saurait lire.</p>''')
+        st.markdown('''Du fait de la nature très répétitive, et de la relative persistance dans le temps des polices imprimées, les modèles d'OCR sont généralement applicables à un large éventail de documents. Cet état de fait implique que l'usage de cette technologie se fait plus facilement à partir de solutions "clé en main" pré-existantes, déjà développées dans le cadre de projets de recherche précédents, ou pour le traitement de texte contemporain. Plus que la transcription même, la difficulté va résider dans la structuration des transcriptions si la mise en page du document est complexe. A l'inverse, l'HTR, du fait de la plus grande variabilié des écritures manuscrites, en particulier dans le temps, va généralement demander un travail de spécialisation des modèles, même si les VLMs les plus récents viennent remettre en cause ce paradigme. Dans les deux cas, il faudra prévoir une vérité terrain, c'est à dire quelques documents représentatifs du corpus traité transcrits à la main, pour mesurer la fiabilité de l'instrument d'OCR ou d'HTR utilisé. La qualité d'une transcription est généralement mesurée à partir du CER (Character Error Rate), c'est à dire le pourcentage de caractères faux dans la transcription par rapport à la "vérité terrain", ou le WER (Word Error Rate), qui est de son côté le pourcentage de mots faux.
+
+### Mise en place
+
+La mise en place de ces technologies dépendra de vos objectifs, de vos compétences techniques et de vos ressources matérielles. Pour des besoins ponctuels ou des volumes limités, des solutions toutes faites en ligne peuvent être suffisantes. Pour des besoins plus importants ou des exigences spécifiques, la mise en place de chaînes de traitement plus complètes ou personnalisées sera sans doute nécessaire. Comme toujours, il faut évaluer avant de se lancer dans le projet la pertinence du temps et des coûts engagés dans le projet par rapport à un travail manuel.
+
+Il est important de noter que la qualité des résultats dépendra fortement de la qualité des images numérisées et des spécificité des documents (langue, écriture, mise en page...).
+
+En terme d'infrastructures il faut prévoir de la puissance de calcul pour l'application sur de larges corpus, et pour l'entraînement ou réentraînement de modèles spécialisés. Pour les moyens humains, une personne qui parle la langue, et est capable de lire l'écriture du document est évidemment indispensable ne serait-ce que pour établir la "vérité terrain". Il ne faut pas attendre de la machine d'être capable de transcrire ce qu'aucun humain ne saurait lire.''', text_alignment ="justify")
         st.image(image=image_path("infographie_difficultes_htr_ocr.JPG"), caption="Exemple de documents et des difficultés posées par leur transcription")
 
-        st.html('''<h3>Usages de transcription automatique</h3>
-                <p>A partir des ces technologies, on peut aider de très nombreuses tâches en lien avec les collections. 
-                Les transcriptions automatiques peuvent servir à la documentation des collections, de leurs parcours et de leurs provenances. La transcription de documents peut grandement faciliter l'accès aux documents concernant les oeuvres. En plus de cela, les VLMs contemporrains sont capables de transformer la transcription en données structurées. On peut ainsi envisager des traitements qui permettent par exemple d'extraire de catalogues de ventes, ou de registres divers, des informations ciblées pour documenter un lot d'oeuvres.  </p>
-                <p>En plus de cela le fait de diposer de transcriptions intégrales de textes permet évidemment des recherche beaucoup plus faciles dans des grands lots de textes numérisés, ou encore d'extraire des informations d'objets mêlant texte et image, comme des affiches ou des albums de photographies. </p>
-                
-                <h3> Outils et ressource</h3>
-                <p> De nombreux outils et ressources existent spécifiquement pour faire de l'OCR et HTR, une sélection non exhaustive ci-dessous :</p>
-                <ul>
-                <li><a href="https://www.transkribus.org/fr">Transkribus, plateforme pour la numérisation, reconnaissance et transcription de textes historiques.</a> </li>
-                <li><a href="https://escriptorium.inria.fr/">E-scriptorim, plateforme pour la transcription de textes de l'INRIA. </li>
-                <li><a href="https://htr-united.github.io/">HTR united, catalogue de jeux de données pour la transcription automatique.</a></li>
-                <li><a href="https://github.com/kba/awesome-ocr"> Awesome OCR (2021), guide des bases et des ressources pour l'OCR en 2021. </a></li> 
-                <li><a href="https://www.teklia.com/arkindex"> Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.</a></li>
-                <li><a href="https://vision.calfa.fr/">Calfa Vision, plateforme développée par l'association Calfa, pour la transcriptions d'écritures non latines.</a>  </li>
-                <li><a href="https://huggingface.co/models?pipeline_tag=image-to-text"> La liste des modèles d'OCR disponibles sur hugging face. </a>
-                <li><a href="https://github.com/mittagessen/kraken">Kraken OCR, l'un des premiers moteurs d'OCR performants s'étant imposé dans les LAMs français. Il permet d'utiliser et ré-entraîner un certain nombre de modèles ouverts.</a></li>
+        st.markdown('''### Usages de transcription automatique
 
-                </ul>
-                
-                <h3>Modèles</h3>
-                <p>Si les technologies évoluent très vite, au moment d'écriture de ce guide nous pouvons citer un certain nombre de modèles IA capables de réaliser des tâches de transcription adaptés au contexte patrimonial. </p>
-                <ul><li><a href="https://pero-ocr.fit.vutbr.cz/">Pero-OCR, modèle de transcription de revues et journaux.</a></li>
-                <li><a href="https://huggingface.co/zai-org/GLM-OCR">GLM-OCR, modèle de transcription généraliste.</a></li>
-                <li><a href="https://github.com/PaddlePaddle/PaddleOCR">Paddle-OCR, modèle de transcription généraliste</a></li>
-                <li><a href="https://mistral.ai/news/mistral-ocr">Mistral OCR, modèle de transcription de Mistral AI. Ce modèle a l'avantage d'être plutôt plus adapté au français qu'une partie de ses concurrents</a></li>
-                <li><a href="https://github.com/tesseract-ocr/tesseract">Tesseract, modèle historique dominant pour l'OCR, disponible en plus d'une centaine de langages.</li>
-                <li> <a href="https://qwen.ai/blog?id=qwen3-vl">QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.</a>  </li>
-                </ul>
-                ''')
+A partir des ces technologies, on peut aider de très nombreuses tâches en lien avec les collections. Les transcriptions automatiques peuvent servir à la documentation des collections, de leurs parcours et de leurs provenances. La transcription de documents peut grandement faciliter l'accès aux documents concernant les oeuvres. En plus de cela, les VLMs contemporrains sont capables de transformer la transcription en données structurées. On peut ainsi envisager des traitements qui permettent par exemple d'extraire de catalogues de ventes, ou de registres divers, des informations ciblées pour documenter un lot d'oeuvres.
+
+En plus de cela le fait de diposer de transcriptions intégrales de textes permet évidemment des recherche beaucoup plus faciles dans des grands lots de textes numérisés, ou encore d'extraire des informations d'objets mêlant texte et image, comme des affiches ou des albums de photographies.
+
+### Outils et ressource
+
+De nombreux outils et ressources existent spécifiquement pour faire de l'OCR et HTR, une sélection non exhaustive ci-dessous :
+
+*   [Transkribus, plateforme pour la numérisation, reconnaissance et transcription de textes historiques.](https://www.transkribus.org/fr)
+*   [E-scriptorim, plateforme pour la transcription de textes de l'INRIA.](https://escriptorium.inria.fr/)
+*   [HTR united, catalogue de jeux de données pour la transcription automatique.](https://htr-united.github.io/)
+*   [Awesome OCR (2021), guide des bases et des ressources pour l'OCR en 2021.](https://github.com/kba/awesome-ocr)
+*   [Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.](https://www.teklia.com/arkindex)
+*   [Calfa Vision, plateforme développée par l'association Calfa, pour la transcriptions d'écritures non latines.](https://vision.calfa.fr/)
+*   [La liste des modèles d'OCR disponibles sur hugging face.](https://huggingface.co/models?pipeline_tag=image-to-text)
+*   [Kraken OCR, l'un des premiers moteurs d'OCR performants s'étant imposé dans les LAMs français. Il permet d'utiliser et ré-entraîner un certain nombre de modèles ouverts.](https://github.com/mittagessen/kraken)
+
+### Modèles
+
+Si les technologies évoluent très vite, au moment d'écriture de ce guide nous pouvons citer un certain nombre de modèles IA capables de réaliser des tâches de transcription adaptés au contexte patrimonial.
+
+*   [Pero-OCR, modèle de transcription de revues et journaux.](https://pero-ocr.fit.vutbr.cz/)
+*   [GLM-OCR, modèle de transcription généraliste.](https://huggingface.co/zai-org/GLM-OCR)
+*   [Paddle-OCR, modèle de transcription généraliste](https://github.com/PaddlePaddle/PaddleOCR)
+*   [Mistral OCR, modèle de transcription de Mistral AI. Ce modèle a l'avantage d'être plutôt plus adapté au français qu'une partie de ses concurrents](https://mistral.ai/news/mistral-ocr)
+*   [Tesseract, modèle historique dominant pour l'OCR, disponible en plus d'une centaine de langages.](https://github.com/tesseract-ocr/tesseract)
+*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl)
+                ''', text_alignment ="justify")
 
             
 
@@ -255,7 +234,7 @@ def projets():
 
 page_names_to_func = {"Accueil": accueil,
                       "Lexique": lexique,
-                      "Usages métiers de l'IA pour les collections patrimoniales":usages,
+                      
                       "Capacités de l'IA": capacites,
                       "Ajouter un projet":add_project,
                       "Projets":afficher_projets}

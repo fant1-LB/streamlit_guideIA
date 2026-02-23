@@ -1,3 +1,3 @@
 Le Readme
 
-python -m streamlit run your_script.py
+python -m streamlit run hello.py
