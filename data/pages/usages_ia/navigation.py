@@ -30,19 +30,15 @@ def usage_navigation():
         )
     st.markdown("Certains modèles permettent également d’effectuer des recherches au sein d’images non documentées à l’aide du langage naturel. Entraînés à associer des images à des descriptions textuelles, ils peuvent ensuite être appliqués à de nouveaux corpus iconographiques afin d’en faciliter l’exploration et la description.")
 
-    st.markdown('''### Modèles
-*   [CLIP, modèle texte et image développé par Open AI.](https://openai.com/index/clip/)
-*   [Siglip, modèle texte et image développé par google (sur Arxiv).](https://arxiv.org/abs/2303.15343)
-*	[DINO, série de modèles pouvant réaliser des tâches de segmentation variées (segmentation, classification, extraction de zones d'intérêt... etc), développé par Meta. Les *embeddings* créés par le modèle peuvent aussi être utilisés à des fins de comparaison.](https://ai.meta.com/research/dinov3/)
-''')
-       
-
-    
     st.markdown('''### Outils et ressources
 
-De nombreux outils et ressources existent pour l'exploitation de ces techniques de similarité : 
-*   [Panoptic, outil d'annotation et de navigation dans des grands corpus d'images](https://www.transkribus.org/fr)
-*   [Pixplot, outil de visualisation de clusters de similarité](https://dhlab.yale.edu/projects/pixplot/)
-*   [Le Match-Engine, cette technologie plus ancienne n'est pas issue du machine learning, mais réalise également des tâches de repérage d'images similairesou de doublons](https://reuse.diglib.org/toolkit/tineye-matchengine/)''', text_alignment="justify")
+*   [Panoptic, outil d'annotation et de navigation dans des grands corpus d'images](https://ceres.sorbonne-universite.fr/Panoptic/) : :fr: - :unlock: - :free:
+*   [Pixplot, outil de visualisation de clusters de similarité](https://dhlab.yale.edu/projects/pixplot/): :us: - :unlock: - :free:
+''', text_alignment="justify")
 
-    
+    st.markdown('''### Modèles
+*   [CLIP, modèle texte et image développé par Open AI.](https://openai.com/index/clip/) : :us:
+*   [Siglip, modèle texte et image développé par google (sur Arxiv).](https://arxiv.org/abs/2303.15343) :us:
+*	[DINO, série de modèles pouvant réaliser des tâches de segmentation variées (segmentation, classification, extraction de zones d'intérêt... etc), développé par Meta. Les *embeddings* créés par le modèle peuvent aussi être utilisés à des fins de comparaison.](https://ai.meta.com/research/dinov3/) :us:
+*   [Flava, modèle de similarité pour la similarité texte-texte, image-image, ou de paires texte-images.](https://flava-model.github.io/) :us:
+''')  

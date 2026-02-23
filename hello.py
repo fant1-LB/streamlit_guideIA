@@ -150,20 +150,20 @@ La description et l'indexation d'images sont deux objets problématiques loin d'
 De nombreux outils et ressources existent à propos de la segmentation et de la classification d'images une sélection non exhaustive ci-dessous :
 
 *   [L'article en profondeur d'IBM consacré aux différents types de segmentation.](https://www.ibm.com/fr-fr/think/topics/image-segmentation)
-*   [Roboflow, plateforme en ligne pour la segmentation d'image. La plateforme dispose d'options gratuites et payantes, selon les besoins qu'on a.](https://roboflow.com/)
-*   [La Google Teachable Machine, application en ligne pour expérimenter avec la classification d'images.](https://teachablemachine.withgoogle.com/train)
-*   [Aikon, plateforme de l'ERC discover à l'école nationale des ponts et chaussées pour la segmentation de manuscrits.](https://aikon-platform.github.io/)
-*   [Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.](https://www.teklia.com/arkindex)
-*   [Labelstudio, plateforme d'annotation développée par l'entreprise Humansignal pour l'annotation d'images pour différentes formes de segmentation.](https://labelstud.io/)
+*   [Roboflow, plateforme en ligne pour la segmentation d'image. La plateforme dispose d'options gratuites et payantes, selon les besoins qu'on a.](https://roboflow.com/) : :us: - :lock: - :free:/:moneybag:
+*   [La Google Teachable Machine, application en ligne pour expérimenter avec la classification d'images.](https://teachablemachine.withgoogle.com/train) : :us: - :lock: - :free:
+*   [Aikon, plateforme de l'ERC discover à l'école nationale des ponts et chaussées pour la segmentation de manuscrits.](https://aikon-platform.github.io/) : :fr: - :unlock: - :free:
+*   [Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.](https://www.teklia.com/arkindex) : :fr: - :unlock: - :free:/:moneybag:
+*   [Labelstudio, plateforme d'annotation développée par l'entreprise Human Signal pour l'annotation d'images pour différentes formes de segmentation.](https://labelstud.io/) : :us: - :unlock: - :free:/:moneybag:
 
 ### Modèles
 
 Si les technologies évoluent très vite, la classification et la segmentation sont dominées par un certain nombre de familles de modèles :
 
-*   [Les modèles Yolo, développés par la société Ultralytics, sont une famille de modèles permettant segmentation, classification, détection de poses, traque d'objets... Ces modèles sont relativement légers et faciles à adapter à des besoins spécifiques.](https://docs.ultralytics.com/fr/)
-*   [SAM, série de modèles de segmentation développés par Meta, ayant la capacité de segmenter une image sans essayer d'attribuer une classe aux éléments ségmentés. Les versions les plus récentes permettent de segmenter selon un prompt.](https://github.com/facebookresearch/segment-anything)
-*   [DINO, série de modèles pouvant réaliser des tâches de segmentation variées (segmentation, classification, extraction de zones d'intérêt... etc), développé par Meta.](https://ai.meta.com/research/dinov3/)
-*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl)''',text_alignment="justify")
+*   [Les modèles Yolo, développés par la société Ultralytics, sont une famille de modèles permettant segmentation, classification, détection de poses, traque d'objets... Ces modèles sont relativement légers et faciles à adapter à des besoins spécifiques.](https://docs.ultralytics.com/fr/) : :us: 
+*   [SAM, série de modèles de segmentation développés par Meta, ayant la capacité de segmenter une image sans essayer d'attribuer une classe aux éléments ségmentés. Les versions les plus récentes permettent de segmenter selon un prompt.](https://github.com/facebookresearch/segment-anything) : :us: 
+*   [DINO, série de modèles pouvant réaliser des tâches de segmentation variées (segmentation, classification, extraction de zones d'intérêt... etc), développé par Meta.](https://ai.meta.com/research/dinov3/) : :us:
+*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl) : :cn: ''',text_alignment="justify") 
             
 
     with tab2: 
@@ -203,25 +203,25 @@ En plus de cela le fait de diposer de transcriptions intégrales de textes perme
 
 De nombreux outils et ressources existent spécifiquement pour faire de l'OCR et HTR, une sélection non exhaustive ci-dessous :
 
-*   [Transkribus, plateforme pour la numérisation, reconnaissance et transcription de textes historiques.](https://www.transkribus.org/fr)
-*   [E-scriptorim, plateforme pour la transcription de textes de l'INRIA.](https://escriptorium.inria.fr/)
-*   [HTR united, catalogue de jeux de données pour la transcription automatique.](https://htr-united.github.io/)
-*   [Awesome OCR (2021), guide des bases et des ressources pour l'OCR en 2021.](https://github.com/kba/awesome-ocr)
-*   [Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.](https://www.teklia.com/arkindex)
-*   [Calfa Vision, plateforme développée par l'association Calfa, pour la transcriptions d'écritures non latines.](https://vision.calfa.fr/)
+*   [Transkribus, plateforme pour la numérisation, reconnaissance et transcription de textes historiques.](https://www.transkribus.org/fr) : 🇪🇺  - :lock: - :free:/:moneybag:
+*   [E-scriptorim, plateforme pour la transcription de textes de l'INRIA.](https://escriptorium.inria.fr/) : :fr: - :lock: - :free:
+*   [HTR united, catalogue de jeux de données pour la transcription automatique.](https://htr-united.github.io/)  
+*   [Awesome OCR (2021), guide des bases et des ressources pour l'OCR en 2021.](https://github.com/kba/awesome-ocr)  
+*   [Arkindex, plateforme développée par l'entreprise Teklia, pour le traitement en masse de documents numérisés.](https://www.teklia.com/arkindex) : :fr: - :unlock: - :free:/:moneybag:
+*   [Calfa Vision, plateforme développée par l'association Calfa, pour la transcriptions d'écritures non latines.](https://vision.calfa.fr/) : :fr: - :lock: - :free:/:moneybag:
 *   [La liste des modèles d'OCR disponibles sur hugging face.](https://huggingface.co/models?pipeline_tag=image-to-text)
-*   [Kraken OCR, l'un des premiers moteurs d'OCR performants s'étant imposé dans les LAMs français. Il permet d'utiliser et ré-entraîner un certain nombre de modèles ouverts.](https://github.com/mittagessen/kraken)
+*   [Kraken OCR, l'un des premiers moteurs d'OCR performants s'étant imposé dans les LAMs français. Il permet d'utiliser et ré-entraîner un certain nombre de modèles ouverts.](https://github.com/mittagessen/kraken) : :fr:/ 🇪🇺  - :unlock: - :free:
 
 ### Modèles
 
 Si les technologies évoluent très vite, au moment d'écriture de ce guide nous pouvons citer un certain nombre de modèles IA capables de réaliser des tâches de transcription adaptés au contexte patrimonial.
 
-*   [Pero-OCR, modèle de transcription de revues et journaux.](https://pero-ocr.fit.vutbr.cz/)
-*   [GLM-OCR, modèle de transcription généraliste.](https://huggingface.co/zai-org/GLM-OCR)
-*   [Paddle-OCR, modèle de transcription généraliste](https://github.com/PaddlePaddle/PaddleOCR)
-*   [Mistral OCR, modèle de transcription de Mistral AI. Ce modèle a l'avantage d'être plutôt plus adapté au français qu'une partie de ses concurrents](https://mistral.ai/news/mistral-ocr)
-*   [Tesseract, modèle historique dominant pour l'OCR, disponible en plus d'une centaine de langages.](https://github.com/tesseract-ocr/tesseract)
-*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl)
+*   [Pero-OCR, modèle de transcription de revues et journaux.](https://pero-ocr.fit.vutbr.cz/) : :czech_republic:
+*   [GLM-OCR, modèle de transcription généraliste.](https://huggingface.co/zai-org/GLM-OCR) : :cn:
+*   [Paddle-OCR, modèle de transcription généraliste](https://github.com/PaddlePaddle/PaddleOCR) : :cn:
+*   [Mistral OCR, modèle de transcription de Mistral AI. Ce modèle a l'avantage d'être plutôt plus adapté au français qu'une partie de ses concurrents](https://mistral.ai/news/mistral-ocr) : :fr:
+*   [Tesseract, modèle historique dominant pour l'OCR, disponible en plus d'une centaine de langages.](https://github.com/tesseract-ocr/tesseract) : :us:
+*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl) : :cn:
                 ''', text_alignment ="justify")
 
             
