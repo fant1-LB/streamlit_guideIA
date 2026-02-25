@@ -110,6 +110,12 @@ def lexique ():
                 abstraits les données qu’il ou elle veut fournir à son IA, ce qui permettra à l’IA de prendre en compte
                 une plus grande quantité d’informations que si elles étaient fournies en langage naturel. Cette
                 technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
+            </p>
+            <h3 id="VLM">VLM</h3>
+            <p>Un VLM (ou <em>Vision Language Model</em>) est un modèle d'IA capable de traiter simultanément du texte et des 
+            images pour générer des réponses textuelles. Contrairement aux modèles de vision par ordinateur traditionnels qui se 
+            limitent à classifier ou détecter des objets, les VLM peuvent raisonner sur le contenu visuel et répondre à des questions 
+            ouvertes en langage naturel. Ces modèles permettent la description d'images, la compréhension de documents structurés ou la recherche sémantique avancée dans des images.
             </p>''')
 
 
