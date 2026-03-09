@@ -24,6 +24,19 @@ def accueil():
             À ce titre, des questions telles que le régime de droit des données traitées, le coût économique, écologique ou l'accompagnement au changement doivent être réflechies de la même manière que pour n'importe quel outil numérique.</p>
             <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie pourra significativement faciliter le travail, il faut compter de très nombreuses heures de travail d'annotation, étude des collections et réflexions techniques.</p>
              ''')
+    
+    st.markdown('''### Ci-dessous une série de ressources externes pour approfondir les concepts présentés dans ce guide : ###   
+- [La stratégie du ministère de la culture pour des intelligences artificielles culturelles et responsables](https://www.culture.gouv.fr/thematiques/innovation-numerique/la-strategie-du-ministere-pour-des-intelligences-artificielles-culturelles-et-responsables)
+- [AI4LAM, communauté internationale consacrée aux usages de l'intelligence artificielle pour les bibliothèques, archives et musées](https://sites.google.com/view/ai4lam) - [Github de la communauté](https://github.com/AI4LAM)              
+- [Guide de planification des projets IA de la Librairie du Congrès Américaine](https://blogs.loc.gov/thesignal/2023/11/introducing-the-lc-labs-artificial-intelligence-planning-framework/)
+- [Blog de Pictoria - Consortium HN consacré à l'usage de l'intelligence artificielle pour les images en Sciences Humaines et Sociales](https://pictoria.hypotheses.org/)
+- [Résultats du programme The Museums + AI, expérimentation autour de l'IA, l'éthique et les musées (2019-2020)](https://themuseumsai.network/)
+- [L'intelligence artificielle à la Bibliothèque Nationale de France, ressources, cadres d'usages, projets...](https://www.bnf.fr/fr/lintelligence-artificielle-la-bnf)
+- [Guide complet d'IBM consacré au _machine learning_ ou apprentissage machine](https://www.ibm.com/think/machine-learning#605511093)
+- [Google ML glossary, dictionnaire de google pour le _machine learning_ ou apprentissage machine](https://developers.google.com/machine-learning/glossary?hl=en)
+                ''')
+
+    
 
 def lexique ():
     st.html('''<h3 id="API">API</h3>
