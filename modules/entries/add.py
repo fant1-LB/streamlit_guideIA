@@ -42,13 +42,13 @@ def add_project():
 
     sync_list_form("usages_ia", methodes_IA)
 
-    usage_pro = st.multiselect(
-        "🏛️ Usages professionnels",
-        load_list_form("usages_pro"),
-        accept_new_options=True,
-    )
+    # usage_pro = st.multiselect(
+    #     "🏛️ Usages professionnels",
+    #     load_list_form("usages_pro"),
+    #     accept_new_options=True,
+    # )
 
-    sync_list_form("usages_pro", usage_pro)
+    # sync_list_form("usages_pro", usage_pro)
 
     objet_etude = st.multiselect(
         "📜 Objet d'étude",
@@ -85,7 +85,7 @@ def add_project():
     # -------------------------
     st.subheader("💰 Financement du projet")
 
-    fourchette = st.selectbox("Fourchette", ["A", "B", "C"])
+    fourchette = st.selectbox("Fourchette", load_list_form("fourchette_financement"))
     valeur_secrete = st.text_input("Valeur approximative (secrète)")
 
     montant_financement = {
@@ -102,7 +102,7 @@ def add_project():
     st.subheader("📆 Dates, statut et avancement du projet")
     colDate1, colDate2 = st.columns([1, 5])
     with colDate1:
-        nb_dates = st.radio("Nombre de dates", [1,2,3,4])
+        nb_dates = st.number_input("Nombre de dates", min_value=1, value=1)
     
     dates = []
 
@@ -155,7 +155,7 @@ def add_project():
         "livrable": livrable_statut
     }
 
-    livrables = st.text_input("Livrables (un par ligne)")
+    livrables = st.text_area("Livrables (un par ligne)")
 
 
     # -------------------------
@@ -237,7 +237,7 @@ def add_project():
         "titre_projet": titre_projet,
         "participants": participants,
         "methodes_IA": methodes_IA,
-        "usage_pro": usage_pro,
+        # "usage_pro": usage_pro,
         "objet_etude": objet_etude,
         "montant_financement": montant_financement,
         "dates": dates,

@@ -1,0 +1,77 @@
+{
+  "id_unique": "0a6600a1-8538-439e-9444-d14cf0c9680b",
+  "id": "louvre_catalogues_islam",
+  "titre_projet": "Catalogues du département des arts de l'islam",
+  "participants": [
+    {
+      "name": "Département des Arts de l'Islam du Musée du louvre",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Département du soutien au collections du musée du Louvre",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Teklia",
+      "type": "prestataire"
+    },
+    {
+      "name": "fonds de dotation Omidyar – fondation Roshan",
+      "type": "financeur"
+    }
+  ],
+  "methodes_IA": [
+    "Transcriptions",
+    "Classification et Description"
+  ],
+  "objet_etude": [
+    "documents textuels"
+  ],
+  "montant_financement": {
+    "fourchette": "20 000 < x < 100 000",
+    "valeur_approximative_secrete": "45 000"
+  },
+  "dates": [
+    {
+      "id_date": "0",
+      "date": "2024-11-01",
+      "type": "début du projet",
+      "date_text": ""
+    }
+  ],
+  "statut_projet": {
+    "statut": "en cours",
+    "livrable": "livrable non disponible"
+  },
+  "source_financement": [
+    "fonds de dotation Omidyar"
+  ],
+  "nbr_personnes_impliques": "2 permanents côté Louvre pour le suivi du projet, 1 stagiaire",
+  "quantite_donnees": "250 catalogues dans une première vague, 1800 au total",
+  "puissance_calcul_interne": false,
+  "ingenierie_interne": false,
+  "livrables": "tableau remplis à partir des informations extraites des catalogues, associés aux oeuvres correspondantes\ntranscriptions des catalogues",
+  "ressources": [
+    {
+      "titre": "Présentation du projet sur le site de Teklia",
+      "url": "https://www.teklia.com/en/references/musee-du-louvre-intelligence-artificielle"
+    }
+  ],
+  "description": "Extraction d'informations structurées des catalogues de vente du département des arts de l'Islam du musée du Louvre.  L'objectif était d'identifier et documenter les oeuvres, ainsi que d'aider au calcul des valeurs d'assurance. ",
+  "contacts": [
+    {
+      "nom": "Nicolas Texier",
+      "email": "Nicolas.Texier@louvre.fr"
+    },
+    {
+      "nom": "Sybille Clochet",
+      "email": "Sybille.Clochet@louvre.fr"
+    },
+    {
+      "nom": "Teklia",
+      "email": ""
+    }
+  ],
+  "illustration": "",
+  "notice_termine": true
+}

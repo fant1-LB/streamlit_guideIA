@@ -1,0 +1,95 @@
+{
+  "id_unique": "c4ddc6da-8262-4165-a30e-fc624ea46a33",
+  "id": "torneh",
+  "titre_projet": "Torne H",
+  "participants": [
+    {
+      "name": "Musée des Arts Décoratifs",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Musée d'Orsay",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Bibliothèque Nationale de France",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Ecole Nationale des Chartes",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Ministère de la Culture",
+      "type": "financeur"
+    }
+  ],
+  "methodes_IA": [
+    "Classification et Description",
+    "Navigation dans des grands corpus"
+  ],
+  "objet_etude": [
+    "documents iconographiques"
+  ],
+  "montant_financement": {
+    "fourchette": " >100 000",
+    "valeur_approximative_secrete": "130 000"
+  },
+  "dates": [
+    {
+      "id_date": "0",
+      "date": "2024-10-01",
+      "type": "début du projet",
+      "date_text": "Début du projet, début des experimentations au Musée des Arts Décoratifs"
+    },
+    {
+      "id_date": "1",
+      "date": "2025-10-01",
+      "type": "jalon",
+      "date_text": "Début des travaux au Musée d'Orsay"
+    },
+    {
+      "id_date": "2",
+      "date": "2026-04-01",
+      "type": "début du projet",
+      "date_text": "Début des expérimentations à la Bibliothèque Nationale de France"
+    },
+    {
+      "id_date": "3",
+      "date": "2026-10-01",
+      "type": "début du projet",
+      "date_text": "Fin du projet"
+    }
+  ],
+  "statut_projet": {
+    "statut": "en cours",
+    "livrable": "livrable disponible"
+  },
+  "source_financement": [
+    "Fonds d’accompagnement à la transformation numérique et à la cybersécurité des établissements du ministère de la Culture"
+  ],
+  "nbr_personnes_impliques": "3 CDD (2ans, 6 mois, 6 mois), 3 stages, ",
+  "quantite_donnees": "",
+  "puissance_calcul_interne": true,
+  "ingenierie_interne": true,
+  "livrables": "Articles scientifiques \nJournée d'étude\nApplication Tiamat (à venir)\nImplémentations dans les chaînes de traitement des établissements (à venir)",
+  "ressources": [
+    {
+      "titre": "Bermes, Charpier \"Repenser les collections patrimoniales par le prisme de l'IA 2025\"",
+      "url": "https://hal.science/hal-05138697v1"
+    }
+  ],
+  "description": "Projet d'expérimentation sur les collections de 3 institutions pour étudier les possibilités d'intégration de l'IA dans la chaîne de traitement des numérisations.  Voir la présentation sur le site de l'école nationale des chartes : https://www.chartes.psl.eu/recherche/centre-jean-mabillon/projets-de-recherche/torne-h-traitement-dobjets-par-reconnaissance-numerique-en-environnement-humain-henrot",
+  "contacts": [
+    {
+      "nom": "Emmanuelle Bermes",
+      "email": "emanuelle.bermes@chartes.psl.eu"
+    },
+    {
+      "nom": "Marion Charpier",
+      "email": "marion.charpier@chartes.psl.eu"
+    }
+  ],
+  "illustration": "",
+  "notice_termine": true
+}

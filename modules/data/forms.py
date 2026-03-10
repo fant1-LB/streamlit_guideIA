@@ -7,13 +7,12 @@ DATA_DIR = "data"
 LIST_FORM_DIR = os.path.join(DATA_DIR, "list_form")
 
 LIST_FORM = {
-    "fourche_financement":"fourchette_financement.json",
+    "fourchette_financement":"fourchette_financement.json",
     "objet_etude": "objet_etude.json",
     "artists_roles": "artists_roles.json",
     "participants_types":"participants_types.json",
     "statut_projet": "statut_projet.json",
     "usages_ia": "usages_ia.json",
-    "usages_pro": "usages_pro.json"
 }
 
 def load_list_form(*keys: str):
