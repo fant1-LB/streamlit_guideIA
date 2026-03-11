@@ -57,7 +57,7 @@
       "url": "https://www.teklia.com/en/references/musee-du-louvre-intelligence-artificielle"
     }
   ],
-  "description": "Extraction d'informations structurées des catalogues de vente du département des arts de l'Islam du musée du Louvre.  L'objectif était d'identifier et documenter les oeuvres, ainsi que d'aider au calcul des valeurs d'assurance. ",
+  "description": "Extraction d'informations structurées des catalogues de vente du département des arts de l'Islam du musée du Louvre.  L'objectif était d'identifier et documenter les oeuvres. L'exploitation des catalogues de vente a notamment permis d'accélerer le travail des personnels chargés du calcul des valeurs d'assurance. ",
   "contacts": [
     {
       "nom": "Nicolas Texier",

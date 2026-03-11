@@ -72,7 +72,7 @@ def afficher_projets():
                 st.write(f"**Usage professionnel :** {', '.join(p.get('usage_pro', []))}")
                 
                 # --- DONNÉES ET INFRA ---
-                qte_donnees = ", ".join([str(q) for q in p.get('quantite_donnees', []) if q])
+                qte_donnees = " - ".join([str(q) for q in p.get('quantite_donnees').split("\n") if q])
                 st.write(f"**Quantité de données :** {qte_donnees}")
                 st.write(f"**Puissance de calcul interne :** {'Oui' if p.get('puissance_calcul_interne') else 'Non'}")
                 st.write(f"**Ingénierie interne :** {'Oui' if p.get('ingenierie_interne') else 'Non'}")
@@ -90,7 +90,7 @@ def afficher_projets():
                 # --- STATUT ET LIVRABLES ---
                 statut_info = p.get('statut_projet', {})
                 st.write(f"**Statut :** {statut_info.get('statut')} | **Livrable :** {statut_info.get('livrable')}")
-                st.write(f"**Types de livrables :** {', '.join([l for l in p.get('livrables', []) if l])}")
+                st.write(f"**Types de livrables :** {' - '.join([l for l in p.get('livrables').split("\n") if l])}")
 
                 # --- ÉTAT DE LA FICHE ---
                 st.write(f"**Notice terminée :** {'✅ Oui' if p.get('notice_termine') else '❌ Non'}")

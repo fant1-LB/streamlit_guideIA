@@ -1,0 +1,53 @@
+{
+  "id_unique": "9c761cb2-0bc7-4c13-a1ed-9a40b11447ca",
+  "id": "lettres hennessey",
+  "titre_projet": "Hennessy HTR",
+  "participants": [
+    {
+      "name": "Service Patrimoine de la Maison Hennessy",
+      "type": "institution partenaire"
+    },
+    {
+      "name": "Teklia",
+      "type": "prestataire"
+    }
+  ],
+  "methodes_IA": [
+    "Transcriptions"
+  ],
+  "objet_etude": [
+    "documents textuels"
+  ],
+  "montant_financement": {
+    "fourchette": "20 000 < x < 100 000",
+    "valeur_approximative_secrete": ">50000 euros"
+  },
+  "dates": [
+    {
+      "id_date": "0",
+      "date": "2023-07-01",
+      "type": "début du projet",
+      "date_text": ""
+    }
+  ],
+  "statut_projet": {
+    "statut": "en cours",
+    "livrable": "livrable non disponible"
+  },
+  "source_financement": [],
+  "nbr_personnes_impliques": "3 personnes, 2 de plus pour le suivi coté Hennessy.",
+  "quantite_donnees": "une première vague de 500 lettres\n14700 lettre contenues dans une dizaine de registres",
+  "puissance_calcul_interne": false,
+  "ingenierie_interne": false,
+  "livrables": "Transcriptions\nTableurs avec données structurées",
+  "ressources": [],
+  "description": "Le service patrimoine de la maison Hennessy, en partenariat avec la société Teklia a réalisé l'HTR des lettres et registres de lettres de ses fonds, et en a extrait les données pertinentes (sujets, personnes mentionnées, dates, lieux...). Une prochaine étape serait de faire la même chose avec des carnets d'expédition. \nLe projet a inclus une phase d'annotations manuelles importante, des réflexions sur la manière de désigner les contenus des documents. Il permet aujourd'hui une approche différente des sources, en permettant de travailler avec une vision très globale des contenus de la collection, par rapport à l'approche ciblée et échantillonaire qui prévalait auparavant.",
+  "contacts": [
+    {
+      "nom": "Service Patrimoine Maison Hennessy",
+      "email": "patrimoine@moethennesy.com"
+    }
+  ],
+  "illustration": "",
+  "notice_termine": true
+}

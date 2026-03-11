@@ -58,7 +58,7 @@ def add_project():
 
     sync_list_form("objet_etude", objet_etude)
 
-    quantite_donnees = st.text_input("Quantité de données (informations complémentaires)")
+    quantite_donnees = st.text_area("Quantité de données (informations complémentaires)")
 
     # -------------------------
     # Participants
