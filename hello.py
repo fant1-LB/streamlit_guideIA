@@ -256,7 +256,7 @@ page_names_to_func = {"Accueil": accueil,
                       "Capacités de l'IA": capacites,
                       "Lexique": lexique,
                       "Ajouter un projet":add_project,
-                      "Projets":afficher_projets
+                      "Projets":afficher_projets,
                       "À propos de nous": apropos}
 
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
