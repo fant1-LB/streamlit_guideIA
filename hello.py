@@ -242,11 +242,22 @@ Si les technologies évoluent très vite, au moment d'écriture de ce guide nous
 def projets():
     st.html("to be done")
 
+def apropos():
+    st.html('''
+        <h3>À propos de nous</h3>
+        <p>Les auteurs du guide sont trois anciens étudiants du master TNAH de l'école nationale des chartes (promotion 2025) qui ont eu l'idée de ce guide pendant leur stage au sein du Consortium Huma-num PictorIA.
+        Ils étaients tous trois dans des institutions patrimoniales ou de recherches différentes (l'INHA, la MSH Mondes et le musée des Arts décoratifs) et se sont retrouvés confrontés aux mêmes problèmes
+        et aux mêmes questionnements quant à l'introduction de l'IA dans le cadre du traitement des collections. De là provient l'idée d'un guide qui vulgarise et répertorie les usages, possibilités et précautions
+        à considérer lorsqu'on veut utiliser l'IA pour l'analyse d'œuvres culturelles, afin de permettre aux institutions détentrices de collections de mieux s'y retrouver dans la galaxie de projets et de possibilitées
+        ouvertes par l'IA. Les auteurs exercent actuellement des fonctions d'ingénieurs d'études à l'École française de Rome, à la MSH Mondes, et au musée des Arts décoratifs où ils continuent de s'impliquer dans des projets de traitement des collections.</p>
+    ''')
+
 page_names_to_func = {"Accueil": accueil, 
                       "Capacités de l'IA": capacites,
                       "Lexique": lexique,
                       "Ajouter un projet":add_project,
-                      "Projets":afficher_projets}
+                      "Projets":afficher_projets
+                      "À propos de nous": apropos}
 
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
 page_names_to_func[demo_name]()
