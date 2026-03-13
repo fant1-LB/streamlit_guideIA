@@ -20,7 +20,7 @@ def accueil():
             Du fait de l'évolution très rapide des technologies dans ce secteur certains des projets et certaines des applications présentées dans ce guide peuvent être obsolètes au moment de la lecture.
             En introduction de ce guide nous voulons également insister sur le fait que l'"IA" ne doit pas être une fin en soi, et devrait être utilisée comme un outil pour accomplir une mission.
             À ce titre, des questions telles que le régime de droit des données traitées, le coût économique, écologique ou l'accompagnement au changement doivent être réflechies de la même manière que pour n'importe quel outil numérique.</p>
-            <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie pourra significativement faciliter le travail, il faut compter de très nombreuses heures de travail d'annotation, étude des collections et réflexions techniques.</p>
+            <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie pourra significativement faciliter le travail, il faut compter de très nombreuses heures de travail d'annotation, d'étude des collections et de réflexions techniques.</p>
              ''')
     
     st.markdown('''### Ci-dessous une série de ressources externes pour approfondir les concepts présentés dans ce guide : ###   
