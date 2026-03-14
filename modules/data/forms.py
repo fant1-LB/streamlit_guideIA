@@ -34,7 +34,7 @@ def load_list_form(*keys: str):
                 seen.add(item)
                 merged.append(item)
 
-    return sorted(merged)
+    return merged
 
 def save_to_list_form(key: str, value):
     if key not in LIST_FORM:
@@ -79,7 +79,7 @@ def save_to_list_form(key: str, value):
     # Écriture uniquement si modification
     if updated:
         with open(path, "w", encoding="utf-8") as f:
-            json.dump(sorted(data), f, ensure_ascii=False, indent=2)
+            json.dump(data, f, ensure_ascii=False, indent=2)
 
 def sync_list_form(key: str, selected_values):
     """
