@@ -1,7 +1,7 @@
 {
   "id_unique": "c58e5823-50cd-432e-b563-4e34c7e2a556",
   "id": "inventaire_idf",
-  "titre_projet": "Inventaire des monuments de l’Île de France",
+  "titre_projet": "Intégration de l'IA service de l'inventaire de la région île de France",
   "participants": [
     {
       "name": "Service inventaire de la région IDF",
@@ -12,7 +12,7 @@
       "type": "financeur"
     },
     {
-      "name": "Startup Beewant",
+      "name": "Beewant",
       "type": "prestataire"
     }
   ],
@@ -26,7 +26,7 @@
     "documents textuels"
   ],
   "montant_financement": {
-    "fourchette": "Pas connu",
+    "fourchette": "Inconnue",
     "valeur_approximative_secrete": ""
   },
   "dates": [

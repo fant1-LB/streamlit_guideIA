@@ -55,7 +55,7 @@ def afficher_projets():
             with st.container(border=True):
                 # --- TITRE ET IDENTIFIANTS ---
                 st.markdown(f"### {p.get('titre_projet', 'Projet sans titre')}")
-                st.markdown(f"**ID Unique :** `{p.get('id_unique')}` | **ID :** `{p.get('id')}`")
+                # st.markdown(f"**ID Unique :** `{p.get('id_unique')}` | **ID :** `{p.get('id')}`")
                 
                 # --- DESCRIPTION ---
                 st.write(f"**Description :** {p.get('description')}")
@@ -93,4 +93,4 @@ def afficher_projets():
                 st.write(f"**Types de livrables :** {' - '.join([l for l in p.get('livrables').split("\n") if l])}")
 
                 # --- ÉTAT DE LA FICHE ---
-                st.write(f"**Notice terminée :** {'✅ Oui' if p.get('notice_termine') else '❌ Non'}")
+                # st.write(f"**Notice terminée :** {'✅ Oui' if p.get('notice_termine') else '❌ Non'}")

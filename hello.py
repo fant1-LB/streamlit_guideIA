@@ -133,7 +133,13 @@ def capacites():
     from pathlib import Path
     import streamlit as st
     st.markdown('''Cette section décrira les usages possibles de technologies IA pour améliorer la connaissance scientifique sur les collections. En préambule de cette section, il faut préciser que les technologies IA n'ont pas vocation à remplacer les personnels scientifiques des institutions patrimoniales, ne serait-ce que parce que leur travail est absolument nécessaire pour évaluer et contrôler les systèmes IA. En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou _finetuning_ de modèles spécialisés requiert l'aide de spécialistes capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.
-''')
+
+Légende des outils : 
+- Le drapeau représente le pays ou la zone géographique d'origine du logiciel ou modèle.
+- Logiciel en source ouverte ou *open-source* : :unlock: / Logiciel propriétaire : :lock:
+- Logiciel gratuit : :free: / Logiciel payant : :moneybag: / Logiciel gratuit avec options payantes : :free:/:moneybag:
+
+                            ''')
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Exploration de grands corpus d'images", "Transcription de textes", "Chatbots et assimilés"])
     with tab1:
@@ -209,7 +215,7 @@ A partir des ces technologies, on peut aider à réaliser de très nombreuses t�
 
 En plus de cela le fait de diposer de transcriptions intégrales de textes permet évidemment des recherche beaucoup plus faciles dans des grands lots de textes numérisés, ou encore d'extraire des informations d'objets mêlant texte et image, comme des affiches ou des albums de photographies.
 
-### Outils et ressource
+### Outils et ressources
 
 De nombreux outils et ressources existent spécifiquement pour faire de l'OCR et HTR, une sélection non exhaustive ci-dessous :
 
@@ -237,24 +243,40 @@ Si les technologies évoluent très vite, au moment d'écriture de ce guide nous
             
 
     
-    tab4.html("""<body> à voir </body>""")
+    tab4.markdown(""" 
+### Chatbots et interactions en langage naturelle ###             
+Les chatbots sont probablement l'application contemporaine du *machine-learning* la plus présente dans l'espace public. 
+Il est aujourd'hui possible de spécialiser les LLMs génératifs derrière les chatbots comme ChatGPT, Le Chat (Mistral) ou encore Claude sur des sujets spécifiques de nombreuses manière différentes. Les plus connues sont le RAG, présenté dans notre lexique, mais aussi des choses comme le [LoRa](https://www.ibm.com/think/topics/lora) ou encore les [MCP](https://www.ibm.com/fr-fr/think/topics/model-context-protocol), qui permettent à une IA de consulter une base de données.
+                  
+Cependant l'usage même de ces modèles spécialisés reste aujourd'hui une question problématique. Ainsi, si d'autres usages présentés dans ce guide, comme la classification ou la segmentation d'éléments picturaux donnent des réponses relativement structurées (correspondance ou non à une classe, exactitude ou non d'une ségmentation), le format de réponses d'un chatbot, en langage naturel, rend l'évaluation de leur fiabilité bien plus complexe.
+        
+Il faut donc faire bien attention à la confiance qu'on accorde à ces modèles. En plus de cela, il faut faire attention aux solutions "toutes faites" en la matière qui font souvent appel à des APIs, c'est à dire qui font appel à un service externe pour interroger le modèle. L'appel à une API implique une sortie des données de l'institution dont il faut réflechir au cadre légal et aux implications. L'appel aux APIs est d'autant plus courant pour ce genre de technologies que la puissance de calcul qu'elles requièrent devient plus rapidement élevée que pour d'autres modèles aux fonctionnalités et connaissances plus limitées.
+        
+Des technologies de chatbot ont néanmoins montré des potentialités réelles par exemple pour retrouver rapidement des notices liées dans des bases de données ou restituer de manière synthétique des points spécifiques contenus dans des grandes masses d'information. Ils ont également pu être utilisés avec des succès variables à des fins de médiation.
+
+### Outils et ressources 
+* [NotebookLM, outil integré de google pour interroger des documents à l'aide des modèles Gemini](https://notebooklm.google/) : :us: - :lock: - :free:/:moneybag:    
+* [Ollama, outil de déploiement de LLMs en local](https://ollama.com/) : :us: - :unlock: - :free:/:moneybag:
+
+### Modèles               
+            """)
 
 def projets():
     st.html("to be done")
 
 def apropos():
     st.html('''
-        <h3>À propos de nous et de la méthodologie</h3>
-        <p>Les auteurs du guide sont : Pierre Husson, Fantin Le Ber et Mathieu Taybi. Trois anciens étudiants du master TNAH de l'école nationale des chartes (promotion 2025) qui ont eu l'idée de ce guide 
-        pendant leur stage au sein du Consortium Huma-num PictorIA.Ils étaient tous trois dans des institutions patrimoniales ou de recherches différentes (l'INHA, la MSH Mondes et le musée des Arts décoratifs) 
-        et se sont retrouvés confrontés aux mêmes problèmes et aux mêmes questionnements quant à l'introduction de l'IA dans le cadre du traitement des collections. 
+        <h3>À propos de nous</h3>
+        <p>Les rédacteurs du guide sont : Pierre Husson, Fantin Le Ber et Mathieu Taybi. Trois anciens étudiants du master TNAH de l'école nationale des chartes (promotion 2025) qui ont eu l'idée de ce guide 
+        pendant leur stage au sein du Consortium Huma-num PictorIA. Les trois stages ont été réalisées dans des institutions patrimoniales ou de recherches (l'INHA, la MSH Mondes et le musée des Arts décoratifs) 
+        et les ont confronté aux mêmes problèmes et aux mêmes questionnements quant à l'introduction de l'IA dans le cadre du traitement des collections. 
         De là provient l'idée d'un guide qui vulgarise et répertorie les usages, possibilités et précautions à considérer lorsqu'on veut utiliser l'IA pour l'analyse d'œuvres culturelles, 
         afin de permettre aux institutions détentrices de collections de mieux s'y retrouver dans la galaxie de projets et de possibilités ouvertes par l'IA. 
-        Les auteurs exercent actuellement des fonctions d'ingénieurs d'études à l'École française de Rome, à la MSH Mondes, et au musée des Arts décoratifs où ils continuent de s'impliquer 
+        Les auteurs exercent actuellement des fonctions d'ingénieurs d'études contractuels à l'École française de Rome, à la MSH Mondes, et au musée des Arts décoratifs où ils continuent de s'impliquer 
         dans des projets de traitement des collections.</p>
-
-        <p>Afin de constituer ce guide et pour la sélection des projets nous avons...
-        </p>
+        <p> La rédaction du guide a été accompagnée par une équipe large issue des réseaux du consortium HN Pictoria. Il faut notamment remercier E. Bermes (ENC -Projet Torne H), H. Biard (Ministère de la Culture), M. Charpier (ENC - Projet Torne H), M. Craignou (Ministère de la Culture), P. Dumora (Ministère de la Culture), L. Decobert (BNF), E. De Saint Ours (Musée Guimet), B. Deshayes (Musée d'Orsay),  M. Faure (INHA), C. Kermorvant (Teklia), J-P. Moreux (Pictoria - BNF), F. Nurra (INHA), J. Schuh (Pictoria - MSH Mondes), A-V. Szabados (Pictoria - UMR Arscan) et L. Termignon (Ministère de la Culture).
+        <p> Les projets sélectionnés pour ce guide l'ont été pour leur intérêt scientifique et pour tenter d'incarner un panel représentatif du champ des possibles contemporains et des manière d'applique l'IA au sein des institutions pour le traitement des collections.
+        
     ''')
 
 page_names_to_func = {"Accueil": accueil, 
@@ -262,7 +284,7 @@ page_names_to_func = {"Accueil": accueil,
                       "Lexique": lexique,
                       "Ajouter un projet":add_project,
                       "Projets":afficher_projets,
-                      "À propos de nous": apropos}
+                      "À propos du guide": apropos}
 
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
 page_names_to_func[demo_name]()
