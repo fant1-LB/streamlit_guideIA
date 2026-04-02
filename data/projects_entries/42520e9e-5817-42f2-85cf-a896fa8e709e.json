@@ -1,0 +1,44 @@
+{
+  "id_unique": "42520e9e-5817-42f2-85cf-a896fa8e709e",
+  "id": "GallicaPix",
+  "titre_projet": "Gallica Images",
+  "participants": [
+    {
+      "name": "Javaness",
+      "type": "prestataire"
+    },
+    {
+      "name": "BnF",
+      "type": "institution partenaire"
+    }
+  ],
+  "methodes_IA": [
+    "Classification et Description",
+    "Navigation dans des grands corpus"
+  ],
+  "objet_etude": [
+    "documents iconographiques"
+  ],
+  "montant_financement": {
+    "fourchette": " >100 000",
+    "valeur_approximative_secrete": "2,3 millions d'euros"
+  },
+  "dates": [],
+  "statut_projet": {
+    "statut": "en cours",
+    "livrable": "livrable non disponible"
+  },
+  "source_financement": [
+    "France 2030"
+  ],
+  "nbr_personnes_impliques": "",
+  "quantite_donnees": "Au moins 1,8 million d'images à l'heure actuelle.",
+  "puissance_calcul_interne": true,
+  "ingenierie_interne": false,
+  "livrables": "",
+  "ressources": [],
+  "description": "",
+  "contacts": [],
+  "illustration": "",
+  "notice_termine": false
+}
