@@ -31,13 +31,13 @@
   "source_financement": [
     "France 2030"
   ],
-  "nbr_personnes_impliques": "",
+  "nbr_personnes_impliques": "Entre 6 et 10 à plein temps à la BnF",
   "quantite_donnees": "Au moins 1,8 million d'images à l'heure actuelle.",
   "puissance_calcul_interne": true,
   "ingenierie_interne": false,
-  "livrables": "",
+  "livrables": "Plateforme de présentation d'images",
   "ressources": [],
-  "description": "",
+  "description": "Projet pour rendre requêtable par mot-clefs et par similarité les images de la plateforme Gallica via le déploiement d'une nouvelle plateforme GallicaPix.",
   "contacts": [],
   "illustration": "",
   "notice_termine": false
