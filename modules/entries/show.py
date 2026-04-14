@@ -69,7 +69,7 @@ def afficher_projets():
                 # --- TECHNIQUE ---
                 st.write(f"**Méthodes IA :** {', '.join(p.get('methodes_IA', []))}")
                 st.write(f"**Objets d'étude :** {', '.join(p.get('objet_etude', []))}")
-                st.write(f"**Usage professionnel :** {', '.join(p.get('usage_pro', []))}")
+               # st.write(f"**Usage professionnel :** {', '.join(p.get('usage_pro', []))}")
                 
                 # --- DONNÉES ET INFRA ---
                 qte_donnees = " - ".join([str(q) for q in p.get('quantite_donnees').split("\n") if q])
@@ -85,7 +85,7 @@ def afficher_projets():
                 # --- FINANCE ---
                 financement = p.get('montant_financement', {})
                 st.write(f"**Fourchette de financement :** {financement.get('fourchette')}")
-                st.write(f"**Sources :** {', '.join(p.get('source_financement', []))}")
+                st.write(f"**Sources du financement :** {', '.join(p.get('source_financement', []))}")
 
                 # --- STATUT ET LIVRABLES ---
                 statut_info = p.get('statut_projet', {})

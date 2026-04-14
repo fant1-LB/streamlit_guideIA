@@ -28,7 +28,7 @@ def usage_navigation():
             caption="Recherche via l'application Panoptic, et un modèle CLIP, des images associées au mot tennis dans le dataset bbc_news_alltime, qui contient l'intégralité des miniatures du site web de la BBC, sur huggingface.",
             width=800
         )
-    st.markdown("Certains modèles permettent également d’effectuer des recherches au sein d’images non documentées à l’aide de langage naturel. Entraînés à associer des images à des descriptions textuelles, ils peuvent ensuite être appliqués à de nouveaux corpus iconographiques afin d’en faciliter l’exploration et la description.")
+    st.markdown("Certains modèles permettent également d’effectuer des recherches au sein d’images non documentées à l’aide de langage naturel. Entraînés à associer des images à des descriptions textuelles, ils peuvent ensuite être appliqués à de nouveaux corpus iconographiques afin d’en faciliter l’exploration et la description. C'est par exemple le cas de modèles comme CLIP ou Siglip")
 
     st.markdown('''### Outils et ressources
 

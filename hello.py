@@ -13,8 +13,8 @@ def accueil():
     st.sidebar.success("Naviguez dans le guide.")
 
     st.html('''<p> Ce guide de ressources a pour objectif de donner un premier aperçu des possibilités de l'intelligence artificielle pour le traitement de collections patrimoniales. Dans le contexte de ce guide le terme IA recouvrira les technologies
-                ayant recours au <i> machine-learning</i>. Ce guide ne traitera pas de formes d'IA tel que les forêts de
-                décision ou les chaînes de Markov.</p>
+                ayant recours à l'apprentissage machine, ou <i> machine-learning</i>. Ce guide ne traitera pas de formes d'IA tel que les forêts de
+                décision ou les chaînes de Markov. L'apprentissage machine' est un ensemble de techniques grâce auxquelles un programme peut généraliser une tâche à de très nombreuses données à partir d'une petite quantité de données d'entraînement. </p>
              
              <p> Ce guide est destiné à des personnes ayant des niveaux informatiques variables, et est pensé pour n'avoir aucun prérequis technique d'entrée. Si certains termes vous sont étrangers n'hésitez pas à consulter notre lexique.
             Du fait de l'évolution très rapide des technologies dans ce secteur certains des projets et certaines des applications présentées dans ce guide peuvent être obsolètes au moment de la lecture.
@@ -89,7 +89,7 @@ def lexique ():
                 des VLM (<i>vision-language model</i>).<br>
                 Ex : GPT-4, DeepSeek-R1, Llama-3 …</p>
             <h3 id="Modèle-IA">Modèle IA</h3>
-            <p>Un modèle IA est un algorithme capable (avec plus ou moins d’efficacité) d’effectuer un ensemble de
+            <p>Un modèle IA est un algorithme capable d’effectuer un ensemble de
                 tâches pour lesquelles on l’a entraîné. Il reçoit un type de données en entrée, et en propose un autre
                 en sortie. Le terme “modèle” s’applique en IA peu importe le domaine. On appelle un modèle qui peut
                 recevoir plusieurs types de données en entrée (par exemple texte ET image) un modèle
@@ -118,12 +118,16 @@ def lexique ():
                 d’informations à une IA type LLM. Pour cela l’utilisateur va donner accès à son LLM à des sources d'information externes (base de donnée, moteur de recherche...). Cette
                 technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
             </p>
+            <h3 id="segmentation">Segmentation</h3>
+            <p>La segmentation est une technique qui consiste à diviser une image en zones distinctes, auxquelles peuvent être associées des classes. Cette technique est particulièrement utile pour repérer la présence où non d'éléments dans une 
+            image, et plus généralement pour l'analyse d'images par IA.</p>
             <h3 id="VLM">VLM</h3>
             <p>Un VLM (ou <em>Vision Language Model</em>) est un modèle IA proche du LLM, mais capable de traiter simultanément du texte et des 
             images. Contrairement aux modèles de vision par ordinateur traditionnels qui se 
             limitent à classifier ou détecter des objets, les VLM peuvent raisonner sur le contenu visuel et répondre à des questions 
             ouvertes en langage naturel. Ces modèles permettent la description d'images, la compréhension de documents structurés ou la recherche sémantique avancée dans des images.
-            </p>''')
+            </p>
+            ''')
 
 
 
@@ -143,23 +147,25 @@ Légende des outils :
     st.set_page_config(layout="wide",)
     tab1, tab2, tab3, tab4 = st.tabs(["Description et classification d'images", "Exploration de grands corpus d'images", "Transcription de textes", "Chatbots et assimilés"])
     with tab1:
-        st.markdown('''### Description, indexation, classification et segmentation d'images
+        st.markdown("## Description, indexation, classification et segmentation d'images")
 
-                
-Un usage fonctionnel de l'IA observé est d'abord la segmentation d'éléments dans des vues numérisées.''', text_alignment="justify")
+                    
+        st.markdown("### Principe et intérêt de la segmentation\n\n Un usage fonctionnel de l'IA observé est d'abord la segmentation d'éléments dans des vues numérisées.")
         
         st.markdown('''La segmentation peut servir, sur des corpus sériels, à identifier les éléments représentés sur une image. On peut par exemple faire appel à cette technique pour savoir quels types d'objets sont présents sur des dessins préparatoires, repérer des personnages ou motifs récurrents sur des oeuvres picturales, ou encore repérer des attributs spécifiques sur une oeuvre. Elle peut aussi par exemple servir de pré-traitement pour travailler sur des images contenues dans des ouvrages, ou dans d'autres images. On peut envisager ainsi de repérer les oeuvres dans des photographies d'exposition, dans des catalogues d'exposition, ou encore les illustrations de manuscrits.
+                    
 
 Selon les modèles et les besoins, la segmentation peut se contenter d'extraire des formes des images (ce qui peut par exemple accélerer l'annotation manuelle d'images, ou permettre d'identifier les motifs récurrents d'un document à un autre), ou extraire en y associant une identification ou "classe", ce qui permet de savoir directement ce qui, selon le modèle, se trouve sur l'image. Le premier type aura l'avantage de pouvoir fonctionner peu importe le terrain d'étude, là où le second type aura généralement besoin d'être spécialisé avant, ce qui implique un travaille d'annotation pour l'entraînement du modèle.
+### Classification et description d'images
 
 Les modèles de classification, eux, vont, comme leur nom l'indique, associer à l'intégralité d'une image une "classe". Contrairement aux modèles de segmentation, qui peuvent, pour certains associer des classes à une partie de l'image, les modèles de classification associent une classe à l'intégralité de l'image. On peut par exemple facilement envisager des traitements qui sépareraient les images en grandes catégories, puis de faire appel à des modèles spécialisés pour affiner le travail sur des corpus déjà triés. Il faut généralement retenir le principe que plus on demandera de classes différentes à un modèle, moins il sera précis pour un entraînement équivalent.
             ''', text_alignment="justify")
         
         st.image(image=image_path("excelsior.jpg"), caption="Extraction par segmentation des photographies d'une page de journal (Excelsior du 24 novembre 1910 - ark:/12148/bpt6k4600008j) à l'aide d'un modèle YOLO")        
                 
-        st.markdown('''La classification est utile pour catégoriser des images sur des corpus massifs mais relativement homogènes. Comme la segmentation, les modèles de type YOLO ou Dino peuvent réaliser des classifications. On peut également utiliser certains VLM/LLM, comme Florence, ou Qwen pour ces tâches, mais obtenir des sorties structurées et contrôlables de ces modèles demande un travail plus fin.
+        st.markdown('''La classification est utile pour catégoriser des images sur des corpus massifs mais relativement homogènes. Comme la segmentation, les modèles de type YOLO ou Dino peuvent réaliser des classifications. On peut également utiliser certains VLM/LLM, comme Florence, ou Qwen pour ces tâches, mais obtenir des sorties structurées et contrôlables de ces modèles demande un travail plus fin. De la même manière que pour la segmentation, un principe général a retenir est que plus il y aura de classes distinctes dans un corpus à classifier, plus il faudra prévoir de données d'entraînement, et plus un modèle sera susceptible de commettre des erreurs.
 
-La description et l'indexation d'images sont deux objets problématiques loin d'être résolus au moment d'écriture de ce guide. La description est envisageable avec des modèles type VLM, mais pose le problème fondamental de la mesurabilité des résultats. L'indexation sur plusieurs niveaux à l'aide de thésaurus complexes comme le thésaurus Garnier ou IconClass pose un problème différent, qui est l'inadaptation des modèles d'IA contemporains à leurs plusieurs niveaux d'indexation. On peut envisager un traitement par plusieurs modèles de classification pour imiter les différents niveaux d'un thésaurus, mais il faut noter que la multiplication des traitements multiplie le nombre d'erreurs, et chaque entraînement a un coût technique et écologique qui doit être pris en compte. Pour ces deux usages, s'il ne faut pas exclure les traitement entièrement automatisés, sur des quantités raisonnables d'images nous recommanderions plutôt d'avoir recours à l'IA pour appuyer le personnel scientifique, dans le cadre de traitements semi-automatiques.
+La description et l'indexation d'images sont deux objets problématiques non résolus au moment d'écriture de ce guide. La description en langage naturel est envisageable avec des modèles type VLM, mais cette approche pose le problème de la mesurabilité des résultats. L'indexation sur plusieurs niveaux à l'aide de thésaurus complexes pose un problème différent, qui est l'inadaptation des modèles d'IA contemporains aux plusieurs niveaux que ces référentiels proposent. On peut envisager un traitement par plusieurs modèles de classification pour imiter les différents niveaux d'un thésaurus, mais il faut noter que la multiplication des traitements multiplie le nombre d'erreurs, et chaque entraînement a un coût en temps humain et en énérgie qui doit être pris en compte. Pour ces deux usages, s'il ne faut pas exclure les traitement entièrement automatisés, sur des quantités raisonnables d'images nous recommanderions plutôt d'avoir recours à l'IA pour appuyer le personnel scientifique, dans le cadre de traitements semi-automatiques. Voir à ce sujet l'onglet consacré à l'exploration de grands corpus d'images.
 
 ### Outils et ressources
 
@@ -188,7 +194,8 @@ Si les technologies évoluent très vite, la classification et la segmentation s
         
     with tab3:
         st.markdown('''Reconnaissance et transcription de textes imprimés et manuscrits
-----------------------------------------------------------------
+---------------------------------------------------------------- ''')
+        st.markdown('''### Principes de la transcription automatique 
 
 Cette section décrira les usages possibles de technologies IA pour transcrire automatiquement du texte dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten Text Recognition) sont des technologies qui ont beaucoup évolués ces dernières années grâce aux progrès de l'IA, et en particulier du deep learning. De nombreux outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans des documents imprimés ou manuscrits, avec des niveaux de performance élevés.
 
@@ -237,7 +244,7 @@ Si les technologies évoluent très vite, au moment d'écriture de ce guide nous
 *   [Paddle-OCR, modèle de transcription généraliste](https://github.com/PaddlePaddle/PaddleOCR) : :cn:
 *   [Mistral OCR, modèle de transcription de Mistral AI. Ce modèle a l'avantage d'être plutôt plus adapté au français qu'une partie de ses concurrents](https://mistral.ai/news/mistral-ocr) : :fr:
 *   [Tesseract, modèle historique dominant pour l'OCR, disponible en plus d'une centaine de langages.](https://github.com/tesseract-ocr/tesseract) : :us:
-*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl) : :cn:
+*   [QWEN-VL est la série de modèles de vision par ordinateur issues des LLMs QWEN, utilisables y compris pour des tâches de transcription. Son point fort est la relative facilité avec laquelle il se spécialise.](https://qwen.ai/blog?id=qwen3-vl) : :cn:
                 ''', text_alignment ="justify")
 
             
@@ -248,18 +255,18 @@ Si les technologies évoluent très vite, au moment d'écriture de ce guide nous
 Les chatbots sont probablement l'application contemporaine du *machine-learning* la plus présente dans l'espace public. 
 Il est aujourd'hui possible de spécialiser les LLMs génératifs derrière les chatbots comme ChatGPT, Le Chat (Mistral) ou encore Claude sur des sujets spécifiques de nombreuses manière différentes. Les plus connues sont le RAG, présenté dans notre lexique, mais aussi des choses comme le [LoRa](https://www.ibm.com/think/topics/lora) ou encore les [MCP](https://www.ibm.com/fr-fr/think/topics/model-context-protocol), qui permettent à une IA de consulter une base de données.
                   
-Cependant l'usage même de ces modèles spécialisés reste aujourd'hui une question problématique. Ainsi, si d'autres usages présentés dans ce guide, comme la classification ou la segmentation d'éléments picturaux donnent des réponses relativement structurées (correspondance ou non à une classe, exactitude ou non d'une ségmentation), le format de réponses d'un chatbot, en langage naturel, rend l'évaluation de leur fiabilité bien plus complexe.
-        
-Il faut donc faire bien attention à la confiance qu'on accorde à ces modèles. En plus de cela, il faut faire attention aux solutions "toutes faites" en la matière qui font souvent appel à des APIs, c'est à dire qui font appel à un service externe pour interroger le modèle. L'appel à une API implique une sortie des données de l'institution dont il faut réflechir au cadre légal et aux implications. L'appel aux APIs est d'autant plus courant pour ce genre de technologies que la puissance de calcul qu'elles requièrent devient plus rapidement élevée que pour d'autres modèles aux fonctionnalités et connaissances plus limitées.
-        
-Des technologies de chatbot ont néanmoins montré des potentialités réelles par exemple pour retrouver rapidement des notices liées dans des bases de données ou restituer de manière synthétique des points spécifiques contenus dans des grandes masses d'information. Ils ont également pu être utilisés avec des succès variables à des fins de médiation.
+Même dans le cadre de modèles spécialisés, à l'inverse d'autres usages présentés dans ce guide, le format de réponses d'un chatbot, en langage naturel, rend l'évaluation de leur fiabilité bien plus complexe.
+En plus de cela, il faut faire attention aux solutions "toutes faites" en la matière qui font souvent appel à des APIs, c'est à dire qui font appel à un service externe pour interroger le modèle. L'appel à une API implique une sortie des données de l'institution dont il faut réflechir au cadre légal et aux implications. L'appel aux APIs est d'autant plus courant pour ce genre de technologies que la puissance de calcul qu'elles requièrent devient plus rapidement élevée que pour d'autres modèles aux fonctionnalités et connaissances plus limitées.
+Des technologies de chatbot ont néanmoins montré des potentialités réelles par exemple pour retrouver rapidement des notices liées dans des bases de données ou restituer de manière synthétique des points spécifiques contenus dans des grandes masses d'information. Ils ont également pu être utilisés à des fins de médiation.
 
 ### Outils et ressources 
 * [NotebookLM, outil integré de google pour interroger des documents à l'aide des modèles Gemini](https://notebooklm.google/) : :us: - :lock: - :free:/:moneybag:    
 * [Ollama, outil de déploiement de LLMs en local](https://ollama.com/) : :us: - :unlock: - :free:/:moneybag:
 
-### Modèles               
-            """)
+### Exemples de modèles               
+* [La série des modèles Mistral, de l'entreprise française Mistral AI. Il en existe de plusieurs tailles et un certain nombre de modèles spécialisés (Mistral OCR, Voxtral...)](https://huggingface.co/mistralai) : :fr:
+* [Les modèles Gemma, modèles ouverts de Google, conçus pour fonctionner sans disposer d'une très grande puissance de calcul](https://deepmind.google/models/gemma/) : :us:
+* [Les modèles QWEN, modèles ouverts de l'entreprise chinoise Alibaba Cloud.](https://huggingface.co/Qwen) : :cn:                             """)
 
 def projets():
     st.html("to be done")
@@ -267,23 +274,21 @@ def projets():
 def apropos():
     st.html('''
         <h3>À propos de nous</h3>
-        <p>Les rédacteurs du guide sont : Pierre Husson, Fantin Le Ber et Mathieu Taybi. Trois anciens étudiants du master TNAH de l'école nationale des chartes (promotion 2025) qui ont eu l'idée de ce guide 
-        pendant leur stage au sein du Consortium Huma-num PictorIA. Les trois stages ont été réalisées dans des institutions patrimoniales ou de recherches (l'INHA, la MSH Mondes et le musée des Arts décoratifs) 
+        <p>Les rédacteurs du guide sont : Pierre Husson, Fantin Le Ber et Mathieu Taybi. Trois anciens étudiants du master TNAH de l'école nationale des chartes (promotion 2025) le projet de ce guide a été lancé dans la suite de leurs
+         stages au sein du Consortium Huma-num PictorIA. Les trois stages ont été réalisées dans des institutions patrimoniales ou de recherches (l'INHA, la MSH Mondes et le musée des Arts décoratifs) 
         et les ont confronté aux mêmes problèmes et aux mêmes questionnements quant à l'introduction de l'IA dans le cadre du traitement des collections. 
         De là provient l'idée d'un guide qui vulgarise et répertorie les usages, possibilités et précautions à considérer lorsqu'on veut utiliser l'IA pour l'analyse d'œuvres culturelles, 
-        afin de permettre aux institutions détentrices de collections de mieux s'y retrouver dans la galaxie de projets et de possibilités ouvertes par l'IA. 
-        Les auteurs exercent actuellement des fonctions d'ingénieurs d'études contractuels à l'École française de Rome, à la MSH Mondes, et au musée des Arts décoratifs où ils continuent de s'impliquer 
-        dans des projets de traitement des collections.</p>
+        afin de permettre aux institutions détentrices de collections de mieux s'y retrouver dans la galaxie de projets et de possibilités ouvertes par l'IA. </p>
         <p> La rédaction du guide a été accompagnée par une équipe large issue des réseaux du consortium HN Pictoria. Il faut notamment remercier E. Bermes (ENC -Projet Torne H), H. Biard (Ministère de la Culture), M. Charpier (ENC - Projet Torne H), M. Craignou (Ministère de la Culture), P. Dumora (Ministère de la Culture), L. Decobert (BNF), E. De Saint Ours (Musée Guimet), B. Deshayes (Musée d'Orsay),  M. Faure (INHA), C. Kermorvant (Teklia), J-P. Moreux (Pictoria - BNF), F. Nurra (INHA), J. Schuh (Pictoria - MSH Mondes), A-V. Szabados (Pictoria - UMR Arscan) et L. Termignon (Ministère de la Culture).
-        <p> Les projets sélectionnés pour ce guide l'ont été pour leur intérêt scientifique et pour tenter d'incarner un panel représentatif du champ des possibles contemporains et des manière d'applique l'IA au sein des institutions pour le traitement des collections.
+        <p> Les projets sélectionnés pour ce guide l'ont été pour leur intérêt scientifique et pour tenter d'incarner un panel représentatif du champ des possibles contemporains et des manière d'appliquer l'IA au sein des institutions pour le traitement des collections.
         
     ''')
 
 page_names_to_func = {"Accueil": accueil, 
                       "Capacités de l'IA": capacites,
+                      "Projets":afficher_projets,
                       "Lexique": lexique,
                       "Ajouter un projet":add_project,
-                      "Projets":afficher_projets,
                       "À propos du guide": apropos}
 
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
