@@ -20,7 +20,7 @@ def accueil():
             Du fait de l'évolution très rapide des technologies dans ce secteur certains des projets et certaines des applications présentées dans ce guide peuvent être obsolètes au moment de la lecture.
             En introduction de ce guide nous voulons également insister sur le fait que l'"IA" ne doit pas être une fin en soi, et devrait être utilisée comme un outil pour accomplir une mission.
             À ce titre, des questions telles que le régime de droit des données traitées, le coût économique, écologique ou l'accompagnement au changement doivent être réflechies de la même manière que pour n'importe quel outil numérique.</p>
-            <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie pourra significativement faciliter le travail, il faut compter de très nombreuses heures de travail d'annotation, d'étude des collections et de réflexions techniques.</p>
+            <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie peut significativement accélerer ou faciliter un tâche, il faut compter de très nombreuses heures de travail d'annotation, d'étude des collections et de réflexions techniques.</p>
              ''')
     
     st.markdown('''### Ci-dessous une série de ressources externes pour approfondir les concepts présentés dans ce guide : ###   
@@ -255,7 +255,7 @@ Si les technologies évoluent très vite, au moment d'écriture de ce guide nous
 Les chatbots sont probablement l'application contemporaine du *machine-learning* la plus présente dans l'espace public. 
 Il est aujourd'hui possible de spécialiser les LLMs génératifs derrière les chatbots comme ChatGPT, Le Chat (Mistral) ou encore Claude sur des sujets spécifiques de nombreuses manière différentes. Les plus connues sont le RAG, présenté dans notre lexique, mais aussi des choses comme le [LoRa](https://www.ibm.com/think/topics/lora) ou encore les [MCP](https://www.ibm.com/fr-fr/think/topics/model-context-protocol), qui permettent à une IA de consulter une base de données.
                   
-Même dans le cadre de modèles spécialisés, à l'inverse d'autres usages présentés dans ce guide, le format de réponses d'un chatbot, en langage naturel, rend l'évaluation de leur fiabilité bien plus complexe.
+Même dans le cadre de modèles spécialisés, à l'inverse d'autres usages présentés dans ce guide, le format de réponses d'un chatbot, en langage naturel, rend l'évaluation de leur fiabilité plus complexe.
 En plus de cela, il faut faire attention aux solutions "toutes faites" en la matière qui font souvent appel à des APIs, c'est à dire qui font appel à un service externe pour interroger le modèle. L'appel à une API implique une sortie des données de l'institution dont il faut réflechir au cadre légal et aux implications. L'appel aux APIs est d'autant plus courant pour ce genre de technologies que la puissance de calcul qu'elles requièrent devient plus rapidement élevée que pour d'autres modèles aux fonctionnalités et connaissances plus limitées.
 Des technologies de chatbot ont néanmoins montré des potentialités réelles par exemple pour retrouver rapidement des notices liées dans des bases de données ou restituer de manière synthétique des points spécifiques contenus dans des grandes masses d'information. Ils ont également pu être utilisés à des fins de médiation.
 
@@ -288,8 +288,8 @@ page_names_to_func = {"Accueil": accueil,
                       "Capacités de l'IA": capacites,
                       "Projets":afficher_projets,
                       "Lexique": lexique,
-                      "Ajouter un projet":add_project,
-                      "À propos du guide": apropos}
+                      #"Ajouter un projet":add_project,
+                      "À propos": apropos}
 
 demo_name = st.sidebar.selectbox("Sélectionnez la page qui vous intéresse", page_names_to_func.keys(), index=0)
 page_names_to_func[demo_name]()
