@@ -1,142 +1,21 @@
 import streamlit as st
 from pathlib import Path
-import streamlit as st
 
 from modules.data.images import image_path
 from modules.entries.add import add_project
 from modules.entries.show import afficher_projets
 
 from data.pages.usages_ia.navigation import usage_navigation
-
-def accueil():
-    st.write("# Bienvenue sur notre guide consacré aux projets IA pour l'étude des collections patrimoniales en France.")
-    st.sidebar.success("Naviguez dans le guide.")
-
-    st.html('''<p> Ce guide de ressources a pour objectif de donner un premier aperçu des possibilités de l'intelligence artificielle pour le traitement de collections patrimoniales. Dans le contexte de ce guide le terme IA recouvrira les technologies
-                ayant recours à l'apprentissage machine, ou <i> machine-learning</i>. Ce guide ne traitera pas de formes d'IA tel que les forêts de
-                décision ou les chaînes de Markov. L'apprentissage machine' est un ensemble de techniques grâce auxquelles un programme peut généraliser une tâche à de très nombreuses données à partir d'une petite quantité de données d'entraînement. </p>
-             
-             <p> Ce guide est destiné à des personnes ayant des niveaux informatiques variables, et est pensé pour n'avoir aucun prérequis technique d'entrée. Si certains termes vous sont étrangers n'hésitez pas à consulter notre lexique.
-            Du fait de l'évolution très rapide des technologies dans ce secteur certains des projets et certaines des applications présentées dans ce guide peuvent être obsolètes au moment de la lecture.
-            En introduction de ce guide nous voulons également insister sur le fait que l'"IA" ne doit pas être une fin en soi, et devrait être utilisée comme un outil pour accomplir une mission.
-            À ce titre, des questions telles que le régime de droit des données traitées, le coût économique, écologique ou l'accompagnement au changement doivent être réflechies de la même manière que pour n'importe quel outil numérique.</p>
-            <p> Enfin il ne faut pas penser l'IA comme un outil "magique" qui réglerait des problèmes importants ou automatiserait des processus sans difficulté. Avant d'atteindre le stade ou la technologie peut significativement accélerer ou faciliter un tâche, il faut compter de très nombreuses heures de travail d'annotation, d'étude des collections et de réflexions techniques.</p>
-             ''')
-    
-    st.markdown('''### Ci-dessous une série de ressources externes pour approfondir les concepts présentés dans ce guide : ###   
-- [La stratégie du ministère de la culture pour des intelligences artificielles culturelles et responsables](https://www.culture.gouv.fr/thematiques/innovation-numerique/la-strategie-du-ministere-pour-des-intelligences-artificielles-culturelles-et-responsables)
-- [AI4LAM, communauté internationale consacrée aux usages de l'intelligence artificielle pour les bibliothèques, archives et musées](https://sites.google.com/view/ai4lam) - [Github de la communauté](https://github.com/AI4LAM)              
-- [Guide de planification des projets IA de la Librairie du Congrès Américaine](https://blogs.loc.gov/thesignal/2023/11/introducing-the-lc-labs-artificial-intelligence-planning-framework/)
-- [Blog de Pictoria - Consortium HN consacré à l'usage de l'intelligence artificielle pour les images en Sciences Humaines et Sociales](https://pictoria.hypotheses.org/)
-- [Résultats du programme The Museums + AI, expérimentation autour de l'IA, l'éthique et les musées (2019-2020)](https://themuseumsai.network/)
-- [L'intelligence artificielle à la Bibliothèque Nationale de France, ressources, cadres d'usages, projets...](https://www.bnf.fr/fr/lintelligence-artificielle-la-bnf)
-- [Guide complet d'IBM consacré au _machine learning_ ou apprentissage machine](https://www.ibm.com/think/machine-learning#605511093)
-- [Google ML glossary, dictionnaire de google pour le _machine learning_ ou apprentissage machine](https://developers.google.com/machine-learning/glossary?hl=en)
-                ''')
-
-    
-
-def lexique ():
-    st.html('''<h3 id="API">API</h3>
-            <p>Une API, pour <i>application programming interface</i> ou « interface de programmation d'application »
-                est un système qui permet de connecter un logiciel à une machine en ligne. Les APIs permettent par exemple d'envoyer sur un serveur extérieur des
-                requêtes à des modèles d'IA trop lourds pour fonctionner sur un ordinateur ou serveur de l'institution.
-                Un traitement qui implique de faire appel à une API implique donc l'accès par un acteur extérieur à l'institution aux documents traités, et donc une vigilance particulière quant au régime de droit des documents en question.
-                La plupart des grands <i>Large language models</i> commerciaux peuvent être utilisés via leur API. </p>
-            <h3 id="Annotations">Annotations</h3>
-            <p>Dans un contexte IA, les annotations sont les données que l’on va utiliser pour entraîner ou réentrainer
-                un modèle. La forme de l’annotation dépend du modèle que l’on veut entraîner ou réentrainer. La
-                transcription d’une zone de texte est une annotation dans un contexte d’OCR/HTR. Un “tag” associé à
-                l’image est une annotation pour un modèle de classification. Une zone délimitée sur une image est une
-                annotation pour un modèle de segmentation. Obtenir des annotations de qualité est un enjeu primordial
-                dans n’importe quel projet IA.</p>
-            <h3 id="chatbot">ChatBot ou agent conversationnel</h3>
-            <p>Un chatbot est un logiciel conçu pour interagir avec un utilisateur au travers d’échanges textuels ou
-                vocaux. Cette technologie préexiste aux LLMs et à l’émergence de l’IA mais a passé un cap en étant
-                associés à des LLMs. Grâce à eux le chatbot peut converser avec l’utilisateur dans un langage naturel.
-                C’est probablement l’application de l’IA la plus connue du grand public. Un chatbot IA est souvent nommé
-                d’après le modèle qui le fait fonctionner.<br>
-                Ex : ChatGPT, Le Chat (Mistral), Claude, Gemini…</p>
-            <h3 id="computerVision">Computer vision</h3>
-            <p>La <em>Computer Vision</em> ou vision par ordinateur en français, sont l’ensemble des technologies
-                permettant l’interprétation d’images par une machine. L’OCR, l’HTR, la segmentation d’images ou encore
-                la détection d’objets sont des applications possibles de <em>Computer Vision</em>.</p>
-            <h3 id="Entraînementréentrainement">Entraînement/réentrainement</h3>
-            <p>L’entraînement est le moment où l’on commence à alimenter en données un algorithme ou modèle pour qu’il
-                se modifie jusqu’à atteindre les résultats qu’on désire. Un entraînement peut se faire à partir
-                de données spécifiquement annotées par un humain (approche supervisée) ou brutes (approche
-                non supervisée). Cette étape demande une puissance de calcul
-                considérable. Le réentraînement est le fait de faire subir un nouvel entraînement à un modèle existant
-                pour le modifier et l’adapter à des besoins spécifiques.</p>
-            <h3 id="Finetuning">Finetuning</h3>
-            <p>Le <em>finetuning</em> est l’ensemble des manipulations que l’on fait sur un modèle pour améliorer ses
-                résultats. Le <em>finetuning</em> peut passer par la modification de paramètres, d’un <em>prompt</em>,
-                ou encore par un réentraînement.</p>
-            <h3 id="GPU">GPU</h3>
-            <p>Un GPU, ou <em>Graphic Processing Unit</em> est une unité de calcul assurant les fonctions de traitement des
-                d’images. Le GPU est le coeur de ce qu’on appelle plus couramment les cartes
-                graphiques. Originellement les GPUs ont été développés pour les jeux vidéos et le calcul de trajectoires. Avec l’émergence de l’IA, la communauté scientifique s’est rendue compte qu’ils
-                étaient bien plus efficaces pour le calcul des objets mathématiques (vecteurs) qu’utilisent la plupart des modèles d’IA que les
-                CPUs (ou processeurs) traditionnels de nos ordinateurs. L’utilisation de GPUs accélère grandement le
-                traitement par IA de données. Avoir un GPU est même nécessaire pour les modèles les plus lourds et les
-                entraînements et réentraînements. </p>
-            <h3 id="LLM">LLM</h3>
-            <p>Un LLM, ou grand modèle de langue, est un modèle IA capable d'interpréter et génerer du langage naturel.<br>
-                Un modèle de langue est un modèle probabiliste basé sur la distribution d’éléments linguistiques (lettres,
-                phonèmes, mots) dans une langue naturelle. Les plus connus sont des modèles génératifs qui calculent le
-                mot suivant ou la lettre suivante le plus probablent dans une séquence de mots, selon un contexte, pour interagir avec
-                l’utilisateur. Un grand modèle de langue se différencie d'un modèle de langue classique par la masse de son corpus d'entraînement et des ses paramètres, l'unité utilisée pour mesurer la taille d'un modèle d'IA.Certains LLMs sont également capables de traiter des images, on les appelle alors aussi
-                des VLM (<i>vision-language model</i>).<br>
-                Ex : GPT-4, DeepSeek-R1, Llama-3 …</p>
-            <h3 id="Modèle-IA">Modèle IA</h3>
-            <p>Un modèle IA est un algorithme capable d’effectuer un ensemble de
-                tâches pour lesquelles on l’a entraîné. Il reçoit un type de données en entrée, et en propose un autre
-                en sortie. Le terme “modèle” s’applique en IA peu importe le domaine. On appelle un modèle qui peut
-                recevoir plusieurs types de données en entrée (par exemple texte ET image) un modèle
-                <em>multimodal</em>. On distingue aussi généralement les modèles <em>spécialisés</em>, capables de
-                réaliser une unique tâche (par exemple détecter les visages sur une image), des modèles
-                <em>généralistes</em>, ou <em>modèles de fondation</em> capables de réaliser des tâches ou de traiter des données très variées (comme la plupart des LLMs génératifs grand public). Les
-                modèles spécialisés requièrent habituellement moins de puissance de calcul que les généralistes.
-            </p>
-            <p>Ex : un modèle YoloV8n reçoit une image en entrée, et propose les coordonnées et le nom d’objets détectés sur
-                l’image en sortie. Tesseract-ocr reçoit une image de texte imprimé et propose une transcription en
-                sortie.</p>
-            <h3 id="OCRHTR">OCR/HTR</h3>
-            <p>OCR (pour <em>Optical Caracter Recognition</em>) et HTR (pour <em>Handwritten Text Recognition</em>)
-                sont les noms données à la transcription automatique de texte imprimé (pour l’OCR) et manuscrit (pour
-                l’HTR). Ces deux technologies peuvent être rassemblées sous le terme d'"ATR", pour <em> Automatic Text Recognition </em> <br>
-                Ex : Tesseract-ocr, pero-ocr, monkey-ocr…</p>
-            <h3 id ="Plongement">Plongement </h3>
-            Un plongement, ou <em> embedding </em> est un objet mathématique complexe, créé et interprété par un modèle pour manipuler les données qu'on lui donne à traiter.
-            <h3 id="Post-correction">Post-correction</h3>
-            <p>La post-correction est le travail que l’on fait après l’application d’un modèle IA pour corriger les
-                erreurs qu’il commet. Selon les situations la post-correction sera nécessaire ou non. Selon les
-                situations elle peut également être automatisée.</p>
-            <p> Par exemple, la post correction d'une transcription peut être une relecture humaine pour vérifier l'absence de mots inventés. 
-            <h3 id="RAG">RAG</h3>
-            <p>Le RAG (ou Retrieval Augmented Generation) est une méthode permettant de donner de grosses quantités
-                d’informations à une IA type LLM. Pour cela l’utilisateur va donner accès à son LLM à des sources d'information externes (base de donnée, moteur de recherche...). Cette
-                technique permet notamment de doter des LLMs de connaissances plus précises dans un domaine particulier.
-            </p>
-            <h3 id="segmentation">Segmentation</h3>
-            <p>La segmentation est une technique qui consiste à diviser une image en zones distinctes, auxquelles peuvent être associées des classes. Cette technique est particulièrement utile pour repérer la présence où non d'éléments dans une 
-            image, et plus généralement pour l'analyse d'images par IA.</p>
-            <h3 id="VLM">VLM</h3>
-            <p>Un VLM (ou <em>Vision Language Model</em>) est un modèle IA proche du LLM, mais capable de traiter simultanément du texte et des 
-            images. Contrairement aux modèles de vision par ordinateur traditionnels qui se 
-            limitent à classifier ou détecter des objets, les VLM peuvent raisonner sur le contenu visuel et répondre à des questions 
-            ouvertes en langage naturel. Ces modèles permettent la description d'images, la compréhension de documents structurés ou la recherche sémantique avancée dans des images.
-            </p>
-            ''')
-
-
+from data.pages.accueil import accueil
+from data.pages.lexique import lexique
+from data.pages.apropos import apropos
 
 
 
 def capacites():
     from pathlib import Path
     import streamlit as st
-    st.markdown('''Cette section décrira les usages possibles de technologies IA pour améliorer la connaissance scientifique sur les collections. En préambule de cette section, il faut préciser que les technologies IA n'ont pas vocation à remplacer les personnels scientifiques des institutions patrimoniales, ne serait-ce que parce que leur travail est absolument nécessaire pour évaluer et contrôler les systèmes IA. En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou _finetuning_ de modèles spécialisés requiert l'aide de spécialistes capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.
+    st.markdown('''Cette section décrit les usages possibles de technologies IA pour améliorer la connaissance scientifique sur les collections. En préambule de cette section, il faut préciser que les technologies IA n'ont pas vocation à remplacer les personnels scientifiques des institutions patrimoniales, ne serait-ce que parce que leur travail est absolument nécessaire pour évaluer et contrôler les systèmes IA. En plus de cela, aucun modèle généraliste n'est à ce jour capable de traiter de manière autonome et vraiment convaincante des collections patrimoniales, et l'entraînement ou _finetuning_ de modèles spécialisés requiert l'aide de spécialistes capables de produire et fournir des données d'entraînement de qualité. L'idée de cette section sera de proposer des outils, algorithmes et applications pour intégrer des éléments IA au travail sur les collections.
 
 Légende des outils : 
 - Le drapeau représente le pays ou la zone géographique d'origine du logiciel ou modèle.
@@ -270,19 +149,6 @@ Des technologies de chatbot ont néanmoins montré des potentialités réelles p
 
 def projets():
     st.html("to be done")
-
-def apropos():
-    st.html('''
-        <h3>À propos de nous</h3>
-        <p>Les rédacteurs du guide sont : Pierre Husson, Fantin Le Ber et Mathieu Taybi. Trois anciens étudiants du master TNAH de l'école nationale des chartes (promotion 2025) le projet de ce guide a été lancé dans la suite de leurs
-         stages au sein du Consortium Huma-num PictorIA. Les trois stages ont été réalisées dans des institutions patrimoniales ou de recherches (l'INHA, la MSH Mondes et le musée des Arts décoratifs) 
-        et les ont confronté aux mêmes problèmes et aux mêmes questionnements quant à l'introduction de l'IA dans le cadre du traitement des collections. 
-        De là provient l'idée d'un guide qui vulgarise et répertorie les usages, possibilités et précautions à considérer lorsqu'on veut utiliser l'IA pour l'analyse d'œuvres culturelles, 
-        afin de permettre aux institutions détentrices de collections de mieux s'y retrouver dans la galaxie de projets et de possibilités ouvertes par l'IA. </p>
-        <p> La rédaction du guide a été accompagnée par une équipe large issue des réseaux du consortium HN Pictoria. Il faut notamment remercier E. Bermes (ENC -Projet Torne H), H. Biard (Ministère de la Culture), M. Charpier (ENC - Projet Torne H), M. Craignou (Ministère de la Culture), P. Dumora (Ministère de la Culture), L. Decobert (BNF), E. De Saint Ours (Musée Guimet), B. Deshayes (Musée d'Orsay),  M. Faure (INHA), C. Kermorvant (Teklia), J-P. Moreux (Pictoria - BNF), F. Nurra (INHA), J. Schuh (Pictoria - MSH Mondes), A-V. Szabados (Pictoria - UMR Arscan) et L. Termignon (Ministère de la Culture).
-        <p> Les projets sélectionnés pour ce guide l'ont été pour leur intérêt scientifique et pour tenter d'incarner un panel représentatif du champ des possibles contemporains et des manière d'appliquer l'IA au sein des institutions pour le traitement des collections.
-        
-    ''')
 
 page_names_to_func = {"Accueil": accueil, 
                       "Capacités de l'IA": capacites,
