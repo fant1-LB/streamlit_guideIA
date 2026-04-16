@@ -2,7 +2,7 @@ import streamlit as st
 
 from modules.data.images import image_path
 
-def usage_navigation():
+def usage_navigation_text():
     st.markdown("## Les outils d'intelligence artificielle pour l'exploration de grands corpus d'images")
     st.markdown("### Similarité et *clustering*")
 
