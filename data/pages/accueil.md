@@ -1,8 +1,8 @@
 # Bienvenue sur notre guide consacré aux projets IA pour l'étude des collections patrimoniales en France.
 
-Ce guide de ressources a pour objectif d'offrir un aperçu des **possibilités** de l'intelligence artificielle pour le traitement et l'analyse des fonds patrimoniaux.
+Ce guide de ressources a pour objectif d'offrir un aperçu des possibilités de l'intelligence artificielle pour le traitement et l'analyse des fonds patrimoniaux.
 
-Il s’articule autour de quatre objectifs principaux :
+Il s’articule autour de trois objectifs principaux :
 
 - proposer un lexique de termes couramment employés dans ce domaine ;
 - présenter des cas d'usages concrets ;
