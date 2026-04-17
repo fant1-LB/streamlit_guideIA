@@ -2,15 +2,17 @@ import streamlit as st
 from modules.data.images import image_path
 
 def usage_transcription_text():
-    st.markdown('''Reconnaissance et transcription de textes imprimés et manuscrits
----------------------------------------------------------------- ''')
-    st.markdown('''### Principes de la transcription automatique 
+    st.markdown("## Reconnaissance et transcription de textes imprimés et manuscrits")
 
-Cette section décrira les usages possibles de technologies IA pour transcrire automatiquement du texte dans des documents numérisés. L'OCR (Optical Character Recognition) et l'HTR (Handwritten Text Recognition) sont des technologies qui ont beaucoup évolués ces dernières années grâce aux progrès de l'IA, et en particulier du deep learning. De nombreux outils et applications sont désormais disponibles pour automatiser la reconnaissance de caractères dans des documents imprimés ou manuscrits, avec des niveaux de performance élevés.
+    st.markdown("### Principes de la transcription automatique")    
 
-
-
-Ce sont des technologies plus anciennes et plus éprouvées que la segmentation, ou encore les chatbots présentés dans ce guide. La transcription se sépare en deux grandes catégories : l'OCR et l'HTR. L'OCR se consacre à la reconnaissance de caractères imprimés, l'HTR à la reconnaissance de caractères manuscrits.''', text_alignment = "justify")
+    st.markdown('''La transcription automatique de texte est généralement distinguée en deux catégories désignées par des acronymes en fonction de si le texte à reconnaître est imprimé ou écrit à la main :''')
+    st.markdown('''
+    - OCR (Optical Character Recognition) : reconnaissance optique de caractères imprimés
+    - HTR (Handwritten Text Recognition) : reconnaissance d'écriture manuscrite 
+    ''')
+    
+    st.markdown('''Si les premières expérimentations de ces procédés remontent au XXe siècle, ils ont connu ces dernières années des avancées significatives grâce aux progrès de l’intelligence artificielle, en particulier du deep learning, qui en ont sensiblement amélioré les performances.''', text_alignment = "justify")
     
     st.image(image=image_path("OCR_Hugo_BnF.png"), caption="capture d'écran montrant un résultat d'un OCR sur un texte de Victor Hugo")
     
